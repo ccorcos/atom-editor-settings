@@ -1,0 +1,20 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+# 'context-menu':
+#   '.overlayer':
+#       'Enable search': 'search:toggle'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Search'
+      'submenu': [
+        { 'label': 'Google...',         'command': 'search:google'  },
+        { 'label': 'DuckDuckGo...',     'command': 'search:ddg'     },
+        { 'label': 'Twitter...',        'command': 'search:twitter' },
+        { 'label': 'GitHub...',         'command': 'search:github'  },
+        { 'label': 'StackOverflow...',  'command': 'search:stackoverflow'  }
+      ]
+    ]
+  }
+]

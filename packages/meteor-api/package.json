@@ -1,0 +1,28 @@
+{
+  "name": "meteor-api",
+  "main": "./lib/meteor-api",
+  "version": "2.9.0",
+  "description": "Meteor API for the Atom editor.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awatson1978/meteor-api"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0",
+    "node": "*"
+  },
+  "dependencies": {},
+  "readme": "Meteor API for the Atom Editor\n=======================================\n\nBring Isomorphic Meetor javascript to the editor with autocomplete, code snippets, color-coded grammar, syntax highlighting, and more!  Code faster and with fewer mistakes!  \n\n---------------------------------------\n#### Meteor API Version  \n\n0.9.3\n\n---------------------------------------\n#### Installation  \n\nSimply go to **Atom > Preferences > Packages**, search for ``Meteor Api``, and install the package!  Then just be sure to select ``Javascript (Meteor)`` as your grammar.\n\n![Javascript Grammar Select](https://raw.githubusercontent.com/awatson1978/meteor-api/master/screenshots/javascript-meteor-select.png)  \n\n\n---------------------------------------\n#### Color Coded Meteor Syntax  \n\n![Meteor-Api Code Sample](https://raw.githubusercontent.com/awatson1978/meteor-api/master/screenshots/code-sample.png)  \n\n\n---------------------------------------\n#### Meteor API Code Snippets  \n\n[Complete List of Covered Meteor API Syntax](https://github.com/awatson1978/meteor-api-for-atom-editor/blob/master/api.md)\n\n![Meteor-Api Grammar](https://raw.githubusercontent.com/awatson1978/meteor-api/master/screenshots/grammar-snippets.png)  \n\n\n\n---------------------------------------\n#### Setting Up Atom As an Integrated Development Environment\n\nIf you want even more Meteor integration, try installing the following packages for an integrated, isomorphic, pure-javascript development environment.  (This list will be updated as new packages are added to the Atom ecosystem).  \n\n````sh\nAtom Lint\nAtom Beautify\nAtom Jshint\nAtom Prettify\nAngularjs\nAtom Angular\nAtom Bootstrap\nAutocomplete\nAutocomplete +\nBracket Matcher\nFiletype Color\nGrammar Selector\nMeteor Api\nMeteor Helper\nOrbit\nWrap Guide\n````\n\n\n---------------------------------------\n#### Open Files From the Command Line\n\nIf you haven't created a symlink for atom, try the following snippet to launch Atom from the command line.  \n\n````sh\n# link your atom binary so it can be run from the command line\nsudo ln -s /Applications/Atom.app/Contents/MacOS/Atom /usr/local/bin/atom\n\n# open a file\nmeteor create helloworld\ncd helloworld\natom helloworld.js\n````\n\n\n---------------------------------------\n#### Acknowledgements / Contributors\n\nA big shoutout to ThusStyles for piecing together the original [meteor-snippets](https://github.com/ThusStyles/meteor-snippets) atom package!\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/awatson1978/meteor-api/issues"
+  },
+  "homepage": "https://github.com/awatson1978/meteor-api",
+  "_id": "meteor-api@2.9.0",
+  "dist": {
+    "shasum": "1908a04f81dd3f24d3e62b80fe50829cfb34d213"
+  },
+  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-779-1pexcxq/package.tgz",
+  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-779-1pexcxq/package.tgz"
+}

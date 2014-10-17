@@ -1,0 +1,35 @@
+{
+  "name": "Orbit",
+  "main": "./lib/orbit",
+  "version": "0.6.0",
+  "description": "Atmosphere Package Installer and uninstaller",
+  "activationEvents": [
+    "orbit:toggle"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scott-mcpherson/orbit"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "underscore": "1.6.0",
+    "ddp": "0.4.4",
+    "moment": "2.5.1",
+    "byline": "4.1.1"
+  },
+  "readme": "# Orbit\n## Atmosphere Package Installer and uninstaller\n\nTo use: open a meteor project and toggle with `ctrl-alt-o`.\n\n![](https://raw.githubusercontent.com/scott-mcpherson/orbit/master/preview/orbit.gif)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/scott-mcpherson/orbit/issues"
+  },
+  "homepage": "https://github.com/scott-mcpherson/orbit",
+  "_id": "Orbit@0.6.0",
+  "dist": {
+    "shasum": "eaf29e6b58d822865d745d6c35a2902ef90932b1"
+  },
+  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-1110-19s89eb/package.tgz",
+  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-1110-19s89eb/package.tgz"
+}

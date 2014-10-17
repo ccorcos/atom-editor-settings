@@ -1,0 +1,28 @@
+{
+  "name": "file-icons",
+  "main": "index",
+  "version": "1.4.0",
+  "private": true,
+  "description": "Assign file extension icons and colours for improved visual grepping",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DanBrooker/file-icons"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.136.0"
+  },
+  "dependencies": {},
+  "readme": "# file-icons\n\nAdds file specific icons to atom for improved visual grepping\n\n![Screenshot](https://raw.githubusercontent.com/DanBrooker/file-icons/master/file-icons.png)\n\n# Customisation\n\nCSS classes can be used to customise the file icon or the filename\n\n    // This is the ruby default css\n    // Sets the icon to octicon-ruby and colours it red\n    .filetype-icon-rb:before\n    {\n      content: \"\\f047\";\n      color: red;\n    }\n\nClasses are generated based on file extension or file name in absence of extension.\ne.g.\n* .rb      -> file-icon-rb\n* .erb     -> file-icon-erb\n* .html    -> file-icon-html\n* Procfile -> file-icon-Procfile\n\n```\n// You could also colour the entire filename and icon if you so desired\n// Sets the icon to octicon-ruby and colours both the icon and filename text\n.filetype-icon-rb\n{\n  color: red;\n}\n.filetype-icon-rb:before\n{\n  content: \"\\f047\";\n}\n```\n\n# Acknowledgments\nWouldn't have even tried to make this if it weren't for [sommerper/filetype-color](https://github.com/sommerper/filetype-color)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/DanBrooker/file-icons/issues"
+  },
+  "homepage": "https://github.com/DanBrooker/file-icons",
+  "_id": "file-icons@1.4.0",
+  "dist": {
+    "shasum": "60452cc9df507587697e0580f1a995f1bfbc71e1"
+  },
+  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-1605-1gz3w0v/package.tgz",
+  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-1605-1gz3w0v/package.tgz"
+}

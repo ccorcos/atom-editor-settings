@@ -1,0 +1,34 @@
+{
+  "name": "js2coffee",
+  "main": "./lib/js2coffee",
+  "version": "0.15.0",
+  "private": true,
+  "description": "Convert selected lines or an entire file into coffeescript.",
+  "activationEvents": [
+    "js2coffee:toggle"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Chandler/atom-js2coffee"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "js2coffee": "~0.2.7",
+    "loophole": "^1.0.0"
+  },
+  "readme": "# js2coffee package\n\nAtom.io wrapper around the wonderful https://github.com/js2coffee/js2coffee\n\n* Allows you to use Js2Coffee on selections of text\n* Correctly reads your tab length from your atom preferences\n* Has a gif in the readme\n\ninstallation: \napm install js2coffee\n\nIf you try to convert invalid javscript it will write an error the atom js console, TODO: throw a more useful error popup\n\n![js2coffee gif](https://raw.github.com/Chandler/atom-js2coffee/master/js2coffee.gif)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/Chandler/atom-js2coffee/issues"
+  },
+  "homepage": "https://github.com/Chandler/atom-js2coffee",
+  "_id": "js2coffee@0.15.0",
+  "dist": {
+    "shasum": "6dfb3df61562b15a17bc426302050293dd2ff3d2"
+  },
+  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-1699-5wfhux/package.tgz",
+  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-1699-5wfhux/package.tgz"
+}

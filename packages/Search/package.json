@@ -1,0 +1,29 @@
+{
+  "name": "Search",
+  "main": "./lib/search",
+  "version": "0.4.0",
+  "description": "Open searches for various sites in your browser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jbranchaud/atom-search"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "open": "0.0.4"
+  },
+  "readme": "# search package\n\nOpen searches in your default browser from Atom for the following sites:\n\n- Google\n- DuckDuckGo\n- Twitter\n- GitHub\n- StackOverflow\n- Wikipedia\n\nYou can highlight text and then select `google`, `ddg`, `twitter`, `github`, `stackoverflow`, or `wikipedia` from the command palette (`Cmd-shift-P`) to search the respective site for those terms. If no text is selected, it will bring up base search page for the respective site.\n\n<!-- screenshot/gif -->\n\n## Installing Search for Atom\n\n### From Atom\n\n- Open up the *Settings View* (`Cmd-,`)\n- Select the *Packages* tab\n- Search for *Search*\n\n### From the command-line\n\n    $ apm install search\n\n## License\n\n&copy; 2014 Josh Branchaud\n\nLicensed under the MIT license. See LICENSE.md for details.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jbranchaud/atom-search/issues"
+  },
+  "homepage": "https://github.com/jbranchaud/atom-search",
+  "_id": "Search@0.4.0",
+  "dist": {
+    "shasum": "511718938ca9dde9733e15e795fd887a8f4edb74"
+  },
+  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-1244-7su4l3/package.tgz",
+  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-1244-7su4l3/package.tgz"
+}

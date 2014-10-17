@@ -1,0 +1,22 @@
+'global':
+  'exception-reporting':
+    'userId': 'c9e80314-eee0-a3bb-2975-55fc840b2d24'
+  'welcome':
+    'showOnStartup': false
+  'metrics':
+    'userId': '8ec18aae5ecc8be2173270183c04622a68af4bfb'
+  'minimap':
+    'plugins':
+      'git-diff': true
+  'tree-view':
+    'showOnRightSide': true
+  'editor':
+    'showIndentGuide': true
+    'scrollPastEnd': true
+    'softWrap': true
+    'fontSize': 16
+  'core':
+    'themes': [
+      'atom-dark-ui'
+      'solarized-dark-syntax'
+    ]

@@ -1,0 +1,34 @@
+{
+  "name": "pdf-view",
+  "main": "./lib/pdf-editor.coffee",
+  "version": "0.11.0",
+  "description": "Atom PDF viewer based on PDF.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/izuzak/atom-pdf-view"
+  },
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "cd node_modules/pdf.js/ && node make singlefile"
+  },
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {
+    "fs-plus": "2.x",
+    "pathwatcher": "^2.0",
+    "pdf.js": "git+https://github.com/mozilla/pdf.js.git#4834f1c28924b3322f00b8383ddb8478193be930"
+  },
+  "readme": "# PDF View package\n\nAdds support for viewing PDF files in Atom. Powered by [PDF.js](https://github.com/mozilla/pdf.js)\n\n![](https://cloud.githubusercontent.com/assets/38924/2875460/79a8fc56-d41c-11e3-8f32-31f71a47e0fb.png)\n\n## Features\n\n### Zooming\n\n|            | OSX                | Windows and Linux    |\n|------------|--------------------|----------------------|\n| Zoom in    | `cmd-=` or `cmd-+` | `ctrl-=` or `ctrl-+` |\n| Zoom out   | `cmd--` or `cmd-_` | `ctrl--` or `ctrl-_` |\n| Reset zoom | `cmd-0`            | `ctrl-0`             |\n\n### Status bar information\n\nShows the number of the current page and total page count.\n\n![](https://cloud.githubusercontent.com/assets/38924/3214330/a13c58a2-efac-11e3-85a5-c75f6d654058.png)\n\n### Go to page\n\nJump to a specific page by either clicking on the page count in the status bar or by executing the `Pdf View: Go To Page` command from the command palette.\n\n![](https://cloud.githubusercontent.com/assets/38924/3689767/ce223cce-1342-11e4-8b7b-b2e5bdbb3016.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/izuzak/atom-pdf-view/issues"
+  },
+  "homepage": "https://github.com/izuzak/atom-pdf-view",
+  "_id": "pdf-view@0.11.0",
+  "dist": {
+    "shasum": "73a7b1241f713657c1a3029e2f5e239b0fc49aee"
+  },
+  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-897-b3hhok/package.tgz",
+  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-897-b3hhok/package.tgz"
+}

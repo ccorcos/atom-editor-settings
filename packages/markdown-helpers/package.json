@@ -1,0 +1,33 @@
+{
+  "name": "markdown-helpers",
+  "main": "./lib/markdown-helpers",
+  "version": "0.2.1",
+  "description": "Markdown helpers",
+  "activationEvents": [
+    "markdown-helpers:convert-link",
+    "markdown-helpers:convert-image"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/catacgc/markdown-helpers"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "request": "2.36.0"
+  },
+  "readme": "# Markdown Helpers package\n\n## Features\n\n- automatically create link from selected words with the first google web result\n- automatically create images from selected words with the first google web result\n\n## Usage\n\n![Usage](http://postachio-images.s3-website-us-east-1.amazonaws.com/539d45c2e7bc2d505d76dcf4/539d439090b01069f4d7b474/dbx-my-first-atom-package-usage.gif)\n\nThe gif above should be self explanatory:\n\n1. write text that you want to link against and select it\n2. toggle Command Palette: `Shift + Command + P`\n3. search for \"convert link\"\n4. press enter and the Auto Markdown package automatically replaces your\nselection with the first Google search result for the selection text:\n`[First Result Page Title](First Result Link)`\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/catacgc/markdown-helpers/issues"
+  },
+  "homepage": "https://github.com/catacgc/markdown-helpers",
+  "_id": "markdown-helpers@0.2.1",
+  "dist": {
+    "shasum": "5a5661ad5fa3dbebd61add1269e6d9163e2e21cd"
+  },
+  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-729-4jd0pb/package.tgz",
+  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-729-4jd0pb/package.tgz"
+}
