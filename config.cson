@@ -14,9 +14,8 @@
     'showIndentGuide': true
     'scrollPastEnd': true
     'softWrap': true
-    'fontSize': 16
   'core':
     'themes': [
       'atom-dark-ui'
-      'solarized-dark-syntax'
+      'glacier-syntax'
     ]
