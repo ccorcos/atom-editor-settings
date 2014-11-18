@@ -10,6 +10,8 @@ Currently supported grammars are:
   * AppleScript
   * Bash
   * Behat Feature
+  * C <sup>*</sup>
+  * C++ <sup>*</sup>
   * Coffeescript
   * CoffeeScript (Literate) <sup>^</sup>
   * Cucumber (Gherkin) <sup>*</sup>
@@ -22,11 +24,14 @@ Currently supported grammars are:
   * Javascript
   * Julia
   * LilyPond
+  * Lisp (via SBCL) <sup>⍵</sup>
   * LiveScript
   * Lua
   * Makefile
   * MoonScript
   * newLISP
+  * Objective-C <sup>*</sup>
+  * Objective-C++ <sup>*</sup>
   * Perl
   * PHP
   * Python
@@ -48,6 +53,10 @@ You only have to add a few lines in a PR to support another.
 <sup>†</sup> Erlang uses `erl` for limited selection based runs (see [#70](https://github.com/rgbkrk/atom-script/pull/70))
 
 <sup>\*</sup> Cucumber (Gherkin), Go, F#, PowerShell, and Swift do not support selection based runs
+
+<sup>⍵</sup> Lisp selection based runs are limited to single line
+
+<sup>‡</sup> C, C++, Objective-C, and Objective-C++ are currently only available for Mac OS X (where `process.platform is 'darwin'`). This is possible due to the commands `xcrun clang` and `xcrun clang++`. **NOTE**: Xcode and the Xcode command line tools are required to ensure `xcrun` and the correct compilers on your system.
 
 ## Installation
 

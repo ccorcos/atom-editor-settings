@@ -1,7 +1,7 @@
 {
   "name": "file-icons",
   "main": "index",
-  "version": "1.4.0",
+  "version": "1.4.2",
   "private": true,
   "description": "Assign file extension icons and colours for improved visual grepping",
   "repository": {
@@ -19,10 +19,23 @@
     "url": "https://github.com/DanBrooker/file-icons/issues"
   },
   "homepage": "https://github.com/DanBrooker/file-icons",
-  "_id": "file-icons@1.4.0",
+  "_id": "file-icons@1.4.2",
   "dist": {
-    "shasum": "60452cc9df507587697e0580f1a995f1bfbc71e1"
+    "shasum": "1ef3400c55eaa02ae028eae27a8fe512956e15ea"
   },
-  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-1605-1gz3w0v/package.tgz",
-  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-1605-1gz3w0v/package.tgz"
+  "_resolved": "/tmp/d-114420-25477-k8rnxd/package.tgz",
+  "_from": "/Users/chet/.atom/.node-gyp/.atom/.apm/file-icons/1.4.2/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "index.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }

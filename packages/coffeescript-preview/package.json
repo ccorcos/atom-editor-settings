@@ -1,0 +1,139 @@
+{
+  "name": "coffeescript-preview",
+  "main": "lib/coffeescript-preview",
+  "version": "1.0.0",
+  "description": "Preview what your CoffeeScript will look like as JavaScript",
+  "license": "MIT",
+  "private": true,
+  "activationEvents": [
+    "coffeescript-preview:toggle"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Glavin001/atom-coffeescript-preview.git"
+  },
+  "homepage": "https://github.com/Glavin001/atom-coffeescript-preview",
+  "bugs": {
+    "url": "https://github.com/Glavin001/atom-coffeescript-preview/issues"
+  },
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "dependencies": {
+    "underscore-plus": "^1.5.0",
+    "coffee-script": "^1.7.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-coffeelint": "0.0.8",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-lesslint": "~1.0.0",
+    "grunt-apm": "0.0.1"
+  },
+  "readme": "# [CoffeeScript Preview for Atom](https://github.com/Glavin001/atom-coffeescript-preview)\n\n---\n\n### *DEPRECATED*: Use [`Preview` for Atom](https://github.com/Glavin001/atom-preview) which supports CoffeeScript and many, many more!\n### *All future development will be on the `Preview` package.* Please report new issues [there](https://github.com/Glavin001/atom-preview/issues).\n\n---\n\nAtom Package: https://atom.io/packages/coffeescript-preview\n\n```bash\napm install coffeescript-preview\n```\n\nOr Settings/Preferences ➔ Packages ➔ Search for `coffeescript-preview`\n\n## Features\n\n- [x] Preview CoffeeScript as JavaScript in tab\n- [x] Live updating of preview\n- [x] Shows loading and error messages\n- [x] [Updates on Tab Change](https://github.com/Glavin001/atom-coffeescript-preview/issues/3)\n- [x] [Highlights using active Atom theme](https://github.com/Glavin001/atom-coffeescript-preview/issues/5)\n\n## Package Settings\n\n- `Refresh Debounce Period` (milliseconds) -\nSet the debounce rate for preview refreshing.\nFor instance, if you type or switch tabs,\nhow long of a pause before the preview refreshes.\n- `Update On Tab Change` (boolean) -\nShould the preview update to the currently active tab?\n\n## Screenshots\n\n### Preview CoffeeScript as JavaScript\n\n![screenshot](https://raw.githubusercontent.com/Glavin001/atom-coffeescript-preview/master/screenshot.png)\n\n### Syncing with Tab Changes\n\n![screencapture](https://cloud.githubusercontent.com/assets/1885333/3576573/99212e10-0b93-11e4-8cd5-9da29e9230dd.gif)\n\n\n[npm]: https://www.npmjs.org/package/generator-atom-package\n[atom-doc]: https://atom.io/docs/latest/creating-a-package \"Official documentation\"\n",
+  "readmeFilename": "README.md",
+  "_id": "coffeescript-preview@1.0.0",
+  "dist": {
+    "shasum": "50f75bc33db8bbf154c540cec31f8d7e95612df8"
+  },
+  "_from": "/Users/chet/.atom/.node-gyp/.atom/.apm/coffeescript-preview/1.0.0/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "coffee-script",
+        "version": "1.8.0",
+        "path": "node_modules/coffee-script/lib/coffee-script/coffee-script.js"
+      },
+      {
+        "name": "mkdirp",
+        "version": "0.3.5",
+        "path": "node_modules/coffee-script/node_modules/mkdirp/index.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.6.1",
+        "path": "node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "Gruntfile.coffee",
+        "lib/coffeescript-preview-view.coffee",
+        "lib/coffeescript-preview.coffee",
+        "lib/deprecation-view.coffee"
+      ],
+      ".js": [
+        "node_modules/coffee-script/lib/coffee-script/browser.js",
+        "node_modules/coffee-script/lib/coffee-script/cake.js",
+        "node_modules/coffee-script/lib/coffee-script/coffee-script.js",
+        "node_modules/coffee-script/lib/coffee-script/command.js",
+        "node_modules/coffee-script/lib/coffee-script/grammar.js",
+        "node_modules/coffee-script/lib/coffee-script/helpers.js",
+        "node_modules/coffee-script/lib/coffee-script/index.js",
+        "node_modules/coffee-script/lib/coffee-script/lexer.js",
+        "node_modules/coffee-script/lib/coffee-script/nodes.js",
+        "node_modules/coffee-script/lib/coffee-script/optparse.js",
+        "node_modules/coffee-script/lib/coffee-script/parser.js",
+        "node_modules/coffee-script/lib/coffee-script/register.js",
+        "node_modules/coffee-script/lib/coffee-script/repl.js",
+        "node_modules/coffee-script/lib/coffee-script/rewriter.js",
+        "node_modules/coffee-script/lib/coffee-script/scope.js",
+        "node_modules/coffee-script/lib/coffee-script/sourcemap.js",
+        "node_modules/coffee-script/node_modules/mkdirp/examples/pow.js",
+        "node_modules/coffee-script/node_modules/mkdirp/index.js",
+        "node_modules/coffee-script/register.js",
+        "node_modules/coffee-script/repl.js",
+        "node_modules/underscore-plus/lib/underscore-plus.js",
+        "node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
+        "node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      ],
+      ".json": [
+        "node_modules/coffee-script/node_modules/mkdirp/package.json",
+        "node_modules/coffee-script/package.json",
+        "node_modules/underscore-plus/node_modules/underscore/package.json",
+        "node_modules/underscore-plus/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "",
+          "lib",
+          "spec"
+        ],
+        "dependencies": {
+          "underscore-plus": "^1.5.0",
+          "coffee-script": "^1.7.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/coffee-script/lib/coffee-script",
+          "node_modules/coffee-script"
+        ],
+        "dependencies": {
+          "mkdirp": "~0.3.5"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/underscore-plus/lib",
+          "node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      }
+    ]
+  }
+}

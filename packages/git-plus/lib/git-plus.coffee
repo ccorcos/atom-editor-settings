@@ -3,14 +3,35 @@ git = require './git'
 GitPaletteView = require './views/git-palette-view'
 
 module.exports =
-  configDefaults:
-    includeStagedDiff: true
-    openInPane: true
-    splitPane: 'right'
-    wordDiff: true
-    amountOfCommitsToShow: 25
-    gitPath: 'git'
-    messageTimeout: 5
+  config:
+    includeStagedDiff:
+      title: 'Include staged diffs?'
+      type: 'boolean'
+      default: true
+    openInPane:
+      type: 'boolean'
+      default: true
+      description: 'Allow commands to open new panes'
+    splitPane:
+      title: 'Split pane direction'
+      type: 'string'
+      default: 'right'
+      description: 'Where should new panes go?(right or left)'
+    wordDiff:
+      type: 'boolean'
+      default: true
+      description: 'Should word diffs be highlighted in diffs?'
+    amountOfCommitsToShow:
+      type: 'integer'
+      default: 25
+    gitPath:
+      type: 'string'
+      default: 'git'
+      description: 'Where is your git?'
+    messageTimeout:
+      type: 'integer'
+      default: 5
+      description: 'How long should success/error messages be shown?'
 
   activate: (state) ->
     GitAdd                 = require './models/git-add'
@@ -41,6 +62,7 @@ module.exports =
     GitTags                = require './models/git-tags'
     GitUnstageFiles        = require './models/git-unstage-files'
     GitRun                 = require './models/git-run'
+    GitMerge               = require './models/git-merge'
 
     atom.workspaceView.command 'git-plus:menu', -> new GitPaletteView()
     atom.workspaceView.command 'git-plus:add', -> GitAdd()
@@ -76,3 +98,4 @@ module.exports =
     atom.workspaceView.command 'git-plus:unstage-files', -> GitUnstageFiles()
     atom.workspaceView.command 'git-plus:init', -> GitInit()
     atom.workspaceView.command 'git-plus:run', -> GitRun()
+    atom.workspaceView.command 'git-plus:merge', -> GitMerge()

@@ -1,0 +1,132 @@
+html {
+    font-size: 10px;
+}
+body {
+    font-family: Arial;
+    max-width: 80em;
+}
+#doc div {
+    padding: 1em;
+}
+#dcolorScheme {
+    margin-top: -3em;
+}
+p {
+    font-size: 2em;
+    line-height: 1.5;
+}
+body#doc ol li,
+body#doc ul li {
+    font-size: 1.8em;
+}
+body#doc ol li li,
+body#doc ul li li {
+    font-size: 0.75em;
+}
+body#doc ol li p,
+body#doc ul li p {
+    font-size: 1em;
+}
+body#doc ol li code,
+body#doc ul li code {
+    font-size: 0.8em;
+}
+li {
+    display: list-item;
+}
+li strong {
+    display: block;
+}
+ol li {
+    list-style: decimal;
+}
+ul li {
+    list-style: disc;
+}
+p em {
+    font-weight: bold;
+}
+.white p em {
+    color: #003;
+}
+.shadow p em {
+    color: #696;
+}
+p a {
+    color: #339;
+    font-weight: bold;
+}
+#doc code {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+code span {
+    color: #999;
+}
+code.commandLine {
+    background: #000;
+    border-radius: 0.5em;
+    color: #fff;
+    font-family: monospace;
+    padding: 0.2em;
+    white-space: pre-wrap;
+    border: 0.1em solid #999;
+}
+code.commandLine .delete {
+    color: #b00;
+}
+code.commandLine .insert {
+    color: #090;
+}
+code.commandLine .meta {
+    color: #adf;
+}
+code.commandLine .delete strong {
+    color: #f00;
+}
+code.commandLine .insert strong {
+    color: #0f0;
+}
+blockquote {
+    font-size: 2em;
+    font-style: italic;
+}
+blockquote span {
+    display: block;
+    font-style: normal;
+    text-align: right;
+}
+h1 {
+    font-size: 3.25em;
+}
+h1 span {
+    display: block;
+    font-size: 0.5em;
+    margin-top: 1em;
+}
+#doc h2 {
+    float: none;
+    font-size: 2.5em;
+    border-style: none;
+    margin: 0 0 2em;
+}
+#doc h3 {
+    font-size: 2em;
+}
+#doc h4 {
+    font-size: 1.8em;
+    margin-top: 0;
+}
+#doc .beautify h4 {
+    position: absolute;
+    left: -200em;
+}
+h1 svg {
+    border: 0.025em solid #000;
+    width: 1.475em;
+    height: 1.475em;
+    margin-bottom: -0.1em;
+}
+h2 {
+    font-size: 1.8em;
+}

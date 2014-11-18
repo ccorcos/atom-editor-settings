@@ -1,7 +1,7 @@
 {
   "name": "markdown-format",
   "main": "./lib/markdown-format",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Formats your Markdown text on save.",
   "repository": {
     "type": "git",
@@ -18,10 +18,25 @@
     "url": "https://github.com/shurcooL/atom-markdown-format/issues"
   },
   "homepage": "https://github.com/shurcooL/atom-markdown-format",
-  "_id": "markdown-format@2.4.0",
+  "_id": "markdown-format@2.4.1",
   "dist": {
-    "shasum": "38987d35ccf26c1e30be9cfafcbee94a72f98cfc"
+    "shasum": "4e81323ec928b8a5600793e7da9c32cba7c27a80"
   },
-  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-677-vw7yh/package.tgz",
-  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-677-vw7yh/package.tgz"
+  "_from": "/Users/chet/.atom/.node-gyp/.atom/.apm/markdown-format/2.4.1/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/markdown-format.coffee"
+      ],
+      ".js": [
+        "lib/markdownfmt.js"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }

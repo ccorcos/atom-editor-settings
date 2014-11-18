@@ -15,7 +15,7 @@ class AutocompleteView extends SimpleSelectListView
   # Private: Makes sure we're listening to editor and buffer events, sets
   # the current buffer
   #
-  # editorView - {EditorView}
+  # editorView - {TextEditorView}
   initialize: (@editorView) ->
     {@editor} = @editorView
 
@@ -23,6 +23,7 @@ class AutocompleteView extends SimpleSelectListView
 
     @addClass "autocomplete-plus"
     @providers = []
+    @disposableEvents = []
 
     return if @currentFileBlacklisted()
 
@@ -87,16 +88,18 @@ class AutocompleteView extends SimpleSelectListView
 
   # Private: Handles editor events
   handleEvents: ->
+    @disposableEvents = [
+      # Close the overlay when the cursor moved without
+      # changing any text
+      @editor.onDidChangeCursorPosition @cursorMoved
+
+      # Is this the event for switching tabs? Dunno...
+      @editor.onDidChangeTitle @cancel
+    ]
+
     # Make sure we don't scroll in the editor view when scrolling
     # in the list
     @list.on "mousewheel", (event) -> event.stopPropagation()
-
-    # Is this the event for switching tabs? Dunno...
-    @editor.on "title-changed-subscription-removed", @cancel
-
-    # Close the overlay when the cursor moved without
-    # changing any text
-    @editor.on "cursor-moved", @cursorMoved
 
     @hiddenInput.on 'compositionstart', =>
       @compositionInProgress = true
@@ -124,20 +127,20 @@ class AutocompleteView extends SimpleSelectListView
   confirmed: (match) ->
     replace = match.provider.confirm match
 
-    @editor.getSelection().clear()
+    @editor.getSelections().forEach (selection) -> selection.clear()
+
     @cancel()
-
-    return unless match
-
-    if replace
-      @replaceTextWithMatch match
-      position = @editor.getCursorBufferPosition()
-      @editor.setCursorBufferPosition [position.row, position.column]
+    return unless replace
+    @replaceTextWithMatch match
+    @editor.getCursors().forEach (cursor) ->
+      position = cursor.getBufferPosition()
+      cursor.setBufferPosition([position.row, position.column])
 
   # Private: Focuses the editor view again
   #
   # focus - {Boolean} should focus
   cancel: =>
+    return unless @active
     super
     unless @editorView.hasFocus()
       @editorView.focus()
@@ -164,8 +167,10 @@ class AutocompleteView extends SimpleSelectListView
 
     # Now we're ready - display the suggestions
     @setItems suggestions
-    @editorView.appendToLinesView this
-    @setPosition()
+    try
+      @editorView.appendToLinesView this
+      @setPosition()
+    catch error
 
     @setActive()
 
@@ -204,7 +209,7 @@ class AutocompleteView extends SimpleSelectListView
   # Private: Repositions the list view. Checks for boundaries and moves the view
   # above or below the cursor if needed.
   setPosition: ->
-    { left, top } = @editorView.pixelPositionForScreenPosition @editor.getCursorScreenPosition()
+    { left, top } = @editor.pixelPositionForScreenPosition @editor.getCursorScreenPosition()
     cursorLeft = left
     cursorTop = top
 
@@ -231,18 +236,24 @@ class AutocompleteView extends SimpleSelectListView
   #
   # match - The match to replace the current prefix with
   replaceTextWithMatch: (match) ->
-    selection = @editor.getSelection()
-    startPosition = selection.getBufferRange().start
-    buffer = @editor.getBuffer()
+    newSelectedBufferRanges = []
+    selections = @editor.getSelections()
 
-    # Replace the prefix with the new word
-    cursorPosition = @editor.getCursorBufferPosition()
-    buffer.delete Range.fromPointWithDelta(cursorPosition, 0, -match.prefix.length)
-    @editor.insertText match.word
+    selections.forEach (selection, i) =>
+      startPosition = selection.getBufferRange().start
+      buffer = @editor.getBuffer()
 
-    # Move the cursor behind the new word
-    suffixLength = match.word.length - match.prefix.length
-    @editor.setSelectedBufferRange [startPosition, [startPosition.row, startPosition.column + suffixLength]]
+      selection.deleteSelectedText()
+      cursorPosition = @editor.getCursors()[i].getBufferPosition()
+      # buffer.delete(Range.fromPointWithDelta(cursorPosition, 0, match.suffix.length))
+      buffer.delete(Range.fromPointWithDelta(cursorPosition, 0, -match.prefix.length))
+
+      infixLength = match.word.length - match.prefix.length
+
+      newSelectedBufferRanges.push([startPosition, [startPosition.row, startPosition.column + infixLength]])
+
+    @editor.insertText(match.word)
+    @editor.setSelectedBufferRanges(newSelectedBufferRanges)
 
   # Private: As soon as the list is in the DOM tree, it calculates the maximum width of
   # all list items and resizes the list so that all items fit
@@ -277,8 +288,8 @@ class AutocompleteView extends SimpleSelectListView
   #
   # currentBuffer - The current {TextBuffer}
   setCurrentBuffer: (@currentBuffer) ->
-    @currentBuffer.on "saved", @onSaved
-    @currentBuffer.on "changed", @onChanged
+    @disposableEvents.push @currentBuffer.onDidSave(@onSaved)
+    @disposableEvents.push @currentBuffer.onDidChange(@onChanged)
 
   # Private: Why are we doing this again...?
   # Might be because of autosave:
@@ -287,9 +298,8 @@ class AutocompleteView extends SimpleSelectListView
 
   # Public: Clean up, stop listening to events
   dispose: ->
-    @currentBuffer?.off "changed", @onChanged
-    @currentBuffer?.off "saved", @onSaved
-    @editor.off "title-changed-subscription-removed", @cancel
-    @editor.off "cursor-moved", @cursorMoved
     for provider in @providers when provider.dispose?
       provider.dispose()
+
+    for disposable in @disposableEvents
+      disposable.dispose()

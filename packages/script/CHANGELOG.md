@@ -1,4 +1,19 @@
+## 2.13.0
+* Add Sass support
+* Add SCSS support
+
+## 2.12.1
+* Update the LiveScript command to `lsc` vs. `livescript`. Since [v1.1.0](http://livescript.net/blog/livescript-1.1.0.html) `lsc` was previously available as an alias and now the official command to run code.
+
 ## 2.12.0
+* Add SML support
+* Add the OperatingSystem grammar utils for platform specific run code
+* Add Mac OS X specific C, C++, Objective-C, and Objective-C++ file based runs
+
+## 2.11.2
+* Incidental release -- no new changes
+
+## 2.11.1
 * Rename "Line Based runs" to "Line Number Based runs"
 
 ## 2.11.0

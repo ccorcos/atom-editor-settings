@@ -9,11 +9,18 @@ describe 'ResolverView', ->
       isModified: -> true
       getUri: -> 'lib/file1.txt'
       save: ->
-      getBuffer: -> { on: -> }
+      onDidSave: ->
     }
     view = new ResolverView(fakeEditor)
 
-    GitBridge._gitCommand = -> 'git'
+    atom.config.set('merge-conflicts.gitPath', 'git')
+    done = false
+    GitBridge.locateGitAnd (err) ->
+      throw err if err?
+      done = true
+
+    waitsFor -> done
+
     GitBridge.process = ({stdout, exit}) ->
       stdout('UU lib/file1.txt')
       exit(0)
@@ -45,4 +52,4 @@ describe 'ResolverView', ->
     expect(fakeEditor.save).toHaveBeenCalled()
     expect(c).toBe('git')
     expect(a).toEqual(['add', 'lib/file1.txt'])
-    expect(o).toEqual({ cwd: atom.project.getRepo().getWorkingDirectory() })
+    expect(o).toEqual({ cwd: atom.project.getRepositories()[0].getWorkingDirectory() })

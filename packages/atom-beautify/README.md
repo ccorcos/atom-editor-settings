@@ -23,6 +23,7 @@ Or Settings/Preferences ➔ Packages ➔ Search for `atom-beautify`
 - [x] JavaScript and JSON
 - [x] HTML, including
   - [x] [Handlebars](http://handlebarsjs.com/)
+  - [x] [Mustache](http://mustache.github.io)
   - [x] [Embedded Ruby (ERB)](https://github.com/Glavin001/atom-beautify/issues/80)
     - Requires [htmlbeautifier](https://github.com/threedaymonk/htmlbeautifier)
   - [x] XML
@@ -33,6 +34,7 @@ Or Settings/Preferences ➔ Packages ➔ Search for `atom-beautify`
   - Requires [python-sqlparse](https://github.com/andialbrecht/sqlparse)
 - [x] [Markdown](https://github.com/Glavin001/atom-beautify/issues/93#issuecomment-55642483)
   - Requires [Pandoc](http://johnmacfarlane.net/pandoc/) to be already installed
+- [X] [Perl](https://github.com/Glavin001/atom-beautify/issues/33)
 - [x] [PHP](https://github.com/donaldpipowitch/atom-beautify/issues/26)  
   - Requires [PHP_Beautifier](http://pear.php.net/package/PHP_Beautifier) to be already installed.
 - [x] [Python](https://github.com/donaldpipowitch/atom-beautify/issues/24)
@@ -58,13 +60,6 @@ Or Settings/Preferences ➔ Packages ➔ Search for `atom-beautify`
 - [x] [Vala](https://github.com/Glavin001/atom-beautify/issues/57)
   - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)
 - [x] [TypeScript](https://github.com/Glavin001/atom-beautify/issues/49)
-
-### Road Map
-
-#### Language support
-
-- [ ] [Perl](https://github.com/Glavin001/atom-beautify/issues/33)
-
 
 ## Usage
 
@@ -97,6 +92,11 @@ Beautification will normally only beautify your selected text.
 However, when beautification occurs on save then it will
 be forced to beautify the entire file's contents,
 not just selected text.
+
+- `disabledLanguages` (Default *empty array*)
+An array of Grammar names to disable beautification for.
+Note: If using the Atom's Package Settings then an array is
+represented as comma-separated string.
 
 - `muteUnsupportedLanguageErrors` (Default *false*)
 Mute only *unsupported language* errors.

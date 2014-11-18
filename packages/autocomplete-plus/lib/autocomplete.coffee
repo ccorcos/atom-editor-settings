@@ -2,13 +2,22 @@ _ = require "underscore-plus"
 AutocompleteView = require "./autocomplete-view"
 Provider = require "./provider"
 Suggestion = require "./suggestion"
+semver = require "semver"
 
 module.exports =
-  configDefaults:
-    includeCompletionsFromAllBuffers: false
-    fileBlacklist: ".*, *.md"
-    enableAutoActivation: true
-    autoActivationDelay: 100
+  config:
+    includeCompletionsFromAllBuffers:
+      type: "boolean"
+      default: false
+    fileBlacklist:
+      type: "string"
+      default: ".*, *.md"
+    enableAutoActivation:
+      type: "boolean"
+      default: true
+    autoActivationDelay:
+      type: "integer"
+      default: 100
 
   autocompleteViews: []
   editorSubscription: null
@@ -18,9 +27,12 @@ module.exports =
     # If both autosave and autocomplete+'s auto-activation feature are enabled,
     # disable the auto-activation
     if atom.packages.isPackageLoaded("autosave") and
+      semver.lt(atom.packages.getLoadedPackage("autosave").metadata.version, "0.17.0") and
       atom.config.get("autosave.enabled") and
       atom.config.get("autocomplete-plus.enableAutoActivation")
         atom.config.set "autocomplete-plus.enableAutoActivation", false
+
+        console.log(atom.packages)
 
         alert """Warning from autocomplete+:
 
@@ -31,10 +43,12 @@ module.exports =
     @editorSubscription = atom.workspaceView.eachEditorView (editor) =>
       if editor.attached and not editor.mini
         autocompleteView = new AutocompleteView(editor)
-        editor.on "editor:will-be-removed", =>
+
+        editor.getModel().onDidDestroy =>
           autocompleteView.remove() unless autocompleteView.hasParent()
           autocompleteView.dispose()
           _.remove(@autocompleteViews, autocompleteView)
+
         @autocompleteViews.push(autocompleteView)
 
   # Public: Cleans everything up, removes all AutocompleteView instances
@@ -44,11 +58,11 @@ module.exports =
     @autocompleteViews.forEach (autocompleteView) -> autocompleteView.remove()
     @autocompleteViews = []
 
-  # Public: Finds the autocomplete view for the given EditorView
+  # Public: Finds the autocomplete view for the given TextEditorView
   # and registers the given provider
   #
   # provider - The new {Provider}
-  # editorView - The {EditorView} we should register the provider with
+  # editorView - The {TextEditorView} we should register the provider with
   registerProviderForEditorView: (provider, editorView) ->
     autocompleteView = _.findWhere @autocompleteViews, editorView: editorView
     unless autocompleteView?
@@ -56,7 +70,7 @@ module.exports =
 
     autocompleteView.registerProvider provider
 
-  # Public: Finds the autocomplete view for the given EditorView
+  # Public: Finds the autocomplete view for the given TextEditorView
   # and unregisters the given provider
   #
   # provider - The {Provider} to unregister

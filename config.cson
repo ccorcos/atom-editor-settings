@@ -6,16 +6,18 @@
   'metrics':
     'userId': '8ec18aae5ecc8be2173270183c04622a68af4bfb'
   'minimap':
-    'plugins':
-      'git-diff': true
+    'plugins': {}
   'tree-view':
     'showOnRightSide': true
   'editor':
     'showIndentGuide': true
     'scrollPastEnd': true
     'softWrap': true
+    'invisibles': {}
   'core':
     'themes': [
-      'atom-dark-ui'
-      'glacier-syntax'
+      'yosemite-unity-ui'
+      'base16-syntax'
     ]
+  'base16-syntax':
+    'scheme': 'Railscasts'
