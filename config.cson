@@ -19,5 +19,8 @@
       'yosemite-unity-ui'
       'base16-syntax'
     ]
+    'disabledPackages': [
+      'markdown-format'
+    ]
   'base16-syntax':
     'scheme': 'Railscasts'
