@@ -15,8 +15,8 @@
     'invisibles': {}
   'core':
     'themes': [
-      'yosemite-unity-ui'
-      'base16-syntax'
+      'seti-ui'
+      'seti-syntax'
     ]
     'disabledPackages': [
       'markdown-format'
@@ -30,4 +30,3 @@
     'plugins':
       'git-diff': true
       'color-highlight': true
-  'terminal-status': {}
