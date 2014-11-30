@@ -1,0 +1,11 @@
+".source.js":
+  "Gulp Task Watch-2":
+    prefix: "guw2"
+    body:"""
+    gulp.task('watch', function () {
+      gulp.watch('${3:sources}', ['$1']);
+      gulp.watch('${4:sources}', ['$2']);
+    });
+
+    gulp.task('default', ['$1', '$2', 'watch']);$5
+    """

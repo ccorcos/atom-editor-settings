@@ -1,0 +1,8 @@
+".source.coffee":
+  "Coffee Gulp Task Watch":
+    prefix: "cguw"
+    body:"""
+    gulp.task 'watch', ->
+      gulp.watch '$1', ['$2']
+      $3
+    """

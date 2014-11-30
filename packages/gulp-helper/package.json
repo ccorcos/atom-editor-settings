@@ -1,0 +1,69 @@
+{
+  "name": "gulp-helper",
+  "main": "./lib/gulp-helper",
+  "version": "1.2.0",
+  "private": true,
+  "description": "Runs gulp watch on your project directory and displays the output!",
+  "activationEvents": [
+    "gulp-helper:toggle"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenwheeler/gulp-helper"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "ansi-to-html": "~0.1.1"
+  },
+  "readme": "# gulp-helper package\n\nThis package runs gulp watch on your current directory and shows an output panel.\n\n####Activate with `ctrl-opt-g`\n\n####Install with `apm install gulp-helper`\n\nPreview:\n\n![Preview](http://i.imgur.com/eny7WWM.gif)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/kenwheeler/gulp-helper/issues"
+  },
+  "homepage": "https://github.com/kenwheeler/gulp-helper",
+  "_id": "gulp-helper@1.2.0",
+  "dist": {
+    "shasum": "d207525a4a289ddbcfd6b6826ddaa20b62ba3e24"
+  },
+  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141024-7847-1op9ukq/package.tgz",
+  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141024-7847-1op9ukq/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "ansi-to-html",
+        "version": "0.1.1",
+        "path": "node_modules/ansi-to-html/lib/ansi_to_html.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "lib/gulp-helper-view.coffee",
+        "lib/gulp-helper.coffee"
+      ],
+      ".js": [
+        "node_modules/ansi-to-html/grunt.js",
+        "node_modules/ansi-to-html/lib/ansi_to_html.js"
+      ],
+      ".json": [
+        "node_modules/ansi-to-html/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "ansi-to-html": "~0.1.1"
+        }
+      }
+    ]
+  }
+}

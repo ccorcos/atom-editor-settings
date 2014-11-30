@@ -23,6 +23,9 @@
       'minimap-git-diff'
       'script'
       'js2coffee'
+      'autocomplete-snippets'
+      'autocomplete-plus'
+      'markdown-preview'
     ]
   'base16-syntax':
     'scheme': 'Railscasts'
@@ -30,3 +33,4 @@
     'plugins':
       'git-diff': true
       'color-highlight': true
+      'find-and-replace': true

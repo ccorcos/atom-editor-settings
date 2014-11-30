@@ -1,0 +1,24 @@
+".source.coffee":
+  "Coffee Gulp Start 5":
+    prefix: "cgust5"
+    body:"""
+    # Load all required Libraries.
+    gulp = require 'gulp'
+    coffeeScript = require 'coffee-script'
+    ${1:plugin} = require 'gulp-${2:plugin_name}'
+    ${3:plugin} = require 'gulp-${4:plugin_name}'
+    ${5:plugin} = require 'gulp-${6:plugin_name}'
+    ${7:plugin} = require 'gulp-${8:plugin_name}'
+    ${9:plugin} = require 'gulp-${10:plugin_name}'
+    #Ctrl-x and Paste in terminal
+
+    ${11:touch README.md &&
+    npm init &&
+    npm install --save-dev gulp &&
+    npm install --save-dev coffee-script &&
+    npm install --save-dev gulp-${2:plugin_name} &&
+    npm install --save-dev gulp-${4:plugin_name} &&
+    npm install --save-dev gulp-${6:plugin_name} &&
+    npm install --save-dev gulp-${8:plugin_name} &&
+    npm install --save-dev gulp-${10:plugin_name}}
+    """

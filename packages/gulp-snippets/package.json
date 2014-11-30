@@ -1,0 +1,51 @@
+{
+  "name": "gulp-snippets",
+  "main": "./lib/gulp-snippets",
+  "version": "0.6.0",
+  "description": "JavaScript & CoffeeScript snippets for Gulp",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manolenso/atom-gulp-snippets"
+  },
+  "engines": {
+    "atom": ">0.61.0"
+  },
+  "devDependencies": {
+    "grunt": "0.4.2",
+    "grunt-cli": "0.1.11",
+    "grunt-lintspaces": "0.3.1"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "readme": "---\r\n# Coffeescript & Javascript Gulp snippets for [Atom](http://atom.io)\r\n[![Build Status](https://travis-ci.org/manolenso/atom-gulp-snippets.svg?branch=master)](https://travis-ci.org/manolenso/atom-gulp-snippets)\r\n\r\n---\r\n\r\n### Install with `apm install gulp-snippets`\r\n\r\n## Development\r\n```sh\r\n$ cd ~/.atom/packages\r\n$ git clone https://github.com/manolenso/atom-gulp-snippets\r\n$ cd atom-gulp-snippets\r\n$ apm install\r\n$ apm link\r\n```\r\n\r\n# `Gulp JavaScript:`\r\n\r\n### start gulp project, 2 to 5 plugin & npm init for package\r\nThis is for starting gulp project, 2 to 5 plugins require,\r\nCTRL+x and paste in terminal create: README.md, package.json\r\nand install Gulp plugins.\r\n\r\n### [gust2] to [gust5] Gulp Start project\r\n\r\n\r\n```javascript\r\nvar gulp = require(gulp),\r\n${1:plugin} = require('gulp-${2:plugin_name}'),\r\n${3:plugin} = require('gulp-${4:plugin_name}'),\r\n${5:plugin} = require('gulp-${6:plugin_name}'),\r\n${7:plugin} = require('gulp-${8:plugin_name}'),\r\n${9:plugin} = require('gulp-${10:plugin_name}');\r\n```\r\n```bash\r\n//Ctrl-x and Paste in terminal\r\n${11:touch README.md &&\r\nnpm init &&\r\nnpm install --save-dev gulp &&\r\nnpm install --save-dev gulp-${2:plugin_name} &&\r\nnpm install --save-dev gulp-${4:plugin_name} &&\r\nnpm install --save-dev gulp-${6:plugin_name} &&\r\nnpm install --save-dev gulp-${8:plugin_name} &&\r\nnpm install --save-dev gulp-${10:plugin_name}}\r\n```\r\n\r\n\r\n### [guv] Gulp plugin require\r\n\r\n```javascript\r\nvar ${1:plugin-variable} = require('gulp-${2:plugin-name}');$3\r\n```\r\n### [gupth] Gulp Paths\r\n\r\n```javascript\r\nvar ${1:varPath} = [\r\n  '${2:Path/to/folders/files}'$3\r\n];\r\n```\r\n### [gus] Gulp Task Source\r\n\r\n```javascript\r\ngulp.task('${1:Task}', function () {\r\n  return gulp.src('${2:Source}')\r\n  .pipe(${3:plugin}($4))$5\r\n  $6\r\n});\r\n```\r\n### [guw] Gulp Task Watch\r\n\r\n```javascript\r\ngulp.task('watch', function () {\r\n  gulp.watch('$1', ['$2']);$3\r\n});\r\n```\r\n\r\n### [gup] Gulp Pipe\r\n\r\n```javascript\r\n.pipe(${1:plugin}($2))\r\n$3\r\n```\r\n### [guw2] to [guw5] Gulp Task Watch, 2 to 5 tasks as default\r\n\r\n```javascript\r\ngulp.task('watch', function () {\r\n  gulp.watch('${5:sources}', ['$1']);\r\n  gulp.watch('${6:sources}', ['$2']);\r\n  gulp.watch('${7:sources}', ['$3']);\r\n  gulp.watch('${8:sources}', ['$4']);\r\n});\r\n\r\ngulp.task('default', ['$1', '$2', '$3', '$4', 'watch']);$9\r\n```\r\n\r\n\r\n----\r\n# `Gulp CoffeeScript:`\r\n\r\n### start gulp project, 2 to 5 plugin & npm init for package\r\nThis is for starting gulp project, 2 to 5 plugins require,\r\nCTRL+x and paste in terminal create: README.md, package.json\r\nand install Gulp plugins.\r\n\r\n\r\n### [cgust2] to [cgust5] Coffee Gulp Start project\r\n\r\n```coffeescript\r\nvar gulp = require(gulp),\r\n${1:plugin} = require('gulp-${2:plugin_name}'),\r\n${3:plugin} = require('gulp-${4:plugin_name}'),\r\n${5:plugin} = require('gulp-${6:plugin_name}'),\r\n${7:plugin} = require('gulp-${8:plugin_name}'),\r\n${9:plugin} = require('gulp-${10:plugin_name}');\r\n```\r\n```bash\r\n//Ctrl-x and Paste in terminal\r\n${11:touch README.md &&\r\nnpm init &&\r\nnpm install --save-dev gulp &&\r\nnpm install --save-dev coffee-script &&\r\nnpm install --save-dev gulp-${2:plugin_name} &&\r\nnpm install --save-dev gulp-${4:plugin_name} &&\r\nnpm install --save-dev gulp-${6:plugin_name} &&\r\nnpm install --save-dev gulp-${8:plugin_name} &&\r\nnpm install --save-dev gulp-${10:plugin_name}}\r\n```\r\n\r\n### [cguv] Coffee Require variable\r\n\r\n```coffeescript\r\n${1:plugin} = require 'gulp-${2:plugin_name}'\r\n$3\r\n```\r\n### [cgupth] Coffee Gulp Paths\r\n\r\n```javascript\r\n${1:varPath} = [\r\n  '${2:Path/to/folders/files}'$3\r\n]\r\n```\r\n### [cgus] Coffee Gulp Task Source\r\n\r\n```coffeescript\r\ngulp.task '${1:name}', ->\r\n  gulp.src '${2:sources}'\r\n    .pipe ${3:plugin}($4)\r\n    $5\r\n```\r\n\r\n### [cguw] Coffee Task Watch\r\n\r\n```coffeescript\r\ngulp.task 'watch', ->\r\n  gulp.watch '$1', ['$2']\r\n  $3\r\n```\r\n\r\n### [cgup] Coffee Gulp Pipe\r\n\r\n```coffeescript\r\n.pipe ${1:plugin}($2)\r\n$3\r\n```\r\n\r\n### [cguw2] to [cguw5] Gulp Task Watch, 2 to 5 tasks as default\r\n\r\n```coffeescript\r\ngulp.task 'watch', ->\r\n  gulp.watch '${5:sources}', ['$1']\r\n  gulp.watch '${6:sources}', ['$2']\r\n  gulp.watch '${7:sources}', ['$3']\r\n  gulp.watch '${8:sources}', ['$4']\r\n\r\ngulp.task 'default', ['$1', '$2', '$3', '$4', 'watch']$9\r\n```\r\n\r\n## License\r\n[MIT Licence](LICENCE.md)©Laurent Remy\r\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/manolenso/atom-gulp-snippets/issues"
+  },
+  "homepage": "https://github.com/manolenso/atom-gulp-snippets",
+  "_id": "gulp-snippets@0.6.0",
+  "dist": {
+    "shasum": "5c926ce6fa443b6f1a7cdd53ab82c04d086d9a41"
+  },
+  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141024-7859-133caxx/package.tgz",
+  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141024-7859-133caxx/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".js": [
+        "Gruntfile.js"
+      ],
+      ".coffee": [
+        "index.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

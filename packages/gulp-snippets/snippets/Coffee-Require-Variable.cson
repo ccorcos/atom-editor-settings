@@ -1,0 +1,7 @@
+".source.coffee":
+  "Coffee Require variable":
+    prefix: "cguv"
+    body:"""
+    ${1:plugin} = require 'gulp-${2:plugin_name}'
+    $3
+    """

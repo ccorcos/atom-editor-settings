@@ -1,0 +1,7 @@
+".source.coffee":
+  "Coffee Gulp Pipe":
+    prefix: "cgup"
+    body:"""
+    .pipe ${1:plugin}($2)
+    $3
+    """

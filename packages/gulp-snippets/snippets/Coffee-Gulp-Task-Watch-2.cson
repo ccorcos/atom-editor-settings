@@ -1,0 +1,10 @@
+".source.coffee":
+  "Coffee Gulp Task Watch 2":
+    prefix: "cguw2"
+    body:"""
+    gulp.task 'watch', ->
+      gulp.watch '${3:sources}', ['$1']
+      gulp.watch '${4:sources}', ['$2']
+
+    gulp.task 'default', ['$1', '$2', 'watch']$6
+    """

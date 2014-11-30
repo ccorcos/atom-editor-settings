@@ -1,0 +1,8 @@
+".source.js":
+  "Gulp Paths":
+    prefix: 'gupth'
+    body:"""
+    var ${1:varPath} = [
+      '${2:Path/to/folders/files}'$3
+    ];
+    """

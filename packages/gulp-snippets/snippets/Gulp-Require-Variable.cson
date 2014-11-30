@@ -1,0 +1,6 @@
+".source.js":
+  "Gulp Require Variable":
+    prefix: "guv"
+    body:"""
+    var ${1:plugin} = require('gulp-${2:plugin_name}');$3
+    """

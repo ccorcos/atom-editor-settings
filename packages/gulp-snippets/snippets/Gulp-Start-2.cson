@@ -1,0 +1,15 @@
+".source.js":
+  "Gulp Start 2":
+    prefix: "gust2"
+    body:"""
+    var gulp = require(gulp),
+        ${1:plugin} = require('gulp-${2:plugin_name}'),
+        ${3:plugin} = require('gulp-${4:plugin_name}');
+
+    //Ctrl-x and Paste in terminal
+    ${5:touch README.md &&
+    npm init &&
+    npm install --save-dev gulp &&
+    npm install --save-dev gulp-${2:plugin_name} &&
+    npm install --save-dev gulp-${4:plugin_name}}
+    """
