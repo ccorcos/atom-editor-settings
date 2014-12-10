@@ -1,11 +1,9 @@
-{deprecate} = require 'grim'
-EmitterMixin = require('emissary').Emitter
-{Emitter} = require 'event-kit'
-semver = require 'semver'
+{Emitter, CompositeDisposable} = require 'event-kit'
 
 ViewManagement = require './mixins/view-management'
 PluginManagement = require './mixins/plugin-management'
-MinimapPluginGeneratorView = require './minimap-plugin-generator-view'
+
+[MinimapPluginGeneratorView, deprecate, semver] = []
 
 require '../vendor/resizeend'
 
@@ -25,7 +23,6 @@ require '../vendor/resizeend'
 #   bool isActive: ->
 # ```
 class Minimap
-  EmitterMixin.includeInto(this)
   ViewManagement.includeInto(this)
   PluginManagement.includeInto(this)
 
@@ -90,25 +87,31 @@ class Minimap
   # Internal: Used only at export time.
   constructor: ->
     @emitter = new Emitter
+    @subscriptions = new CompositeDisposable
 
   # Activates the minimap package.
   activate: ->
-    atom.workspaceView.command 'minimap:toggle', => @toggle()
-    atom.workspaceView.command "minimap:generate-plugin", => @generatePlugin()
-    if atom.config.get('minimap.displayPluginsControls')
-      atom.workspaceView.command 'minimap:open-quick-settings', ->
-        atom.workspaceView.getActivePaneView().find('.minimap .open-minimap-quick-settings').mousedown()
+    @subscriptions.add atom.commands.add 'atom-workspace',
+      'minimap:toggle': => @toggle()
+      'minimap:generate-plugin': => @generatePlugin()
 
-    atom.workspaceView.toggleClass 'minimap-on-left', atom.config.get('minimap.displayMinimapOnLeft')
-    atom.config.observe 'minimap.displayMinimapOnLeft', ->
-      atom.workspaceView.toggleClass 'minimap-on-left', atom.config.get('minimap.displayMinimapOnLeft')
+    workspaceElement = atom.views.getView(atom.workspace)
+
+    if atom.config.get('minimap.displayPluginsControls')
+      @subscriptions.add atom.commands.add 'atom-workspace',
+        'minimap:open-quick-settings': ->
+          editor = atom.workspace.getActiveEditor()
+          @minimapForEditor(editor).openQuickSettings.mousedown()
+
+    @subscriptions.add atom.config.observe 'minimap.displayMinimapOnLeft', (value) ->
+      workspaceElement.classList.toggle 'minimap-on-left', value
 
     @toggle() if atom.config.get 'minimap.autoToggle'
 
   # Deactivates the minimap package.
   deactivate: ->
+    @active = false
     @destroyViews()
-    @emit('deactivated')
     @emitter.emit('did-deactivate')
 
   # Verifies that the passed-in version expression is satisfied by
@@ -119,7 +122,9 @@ class Minimap
   #                     version.
   #
   # Returns a {Boolean}.
-  versionMatch: (expectedVersion) -> semver.satisfies(@version, expectedVersion)
+  versionMatch: (expectedVersion) ->
+    semver ?= require 'semver'
+    semver.satisfies(@version, expectedVersion)
 
   # Public: Toggles the minimap activation state.
   toggle: ->
@@ -129,11 +134,11 @@ class Minimap
     else
       @createViews()
       @active = true
-      @emit('activated')
       @emitter.emit('did-activate')
 
   # Public: Opens the plugin generation view.
   generatePlugin: ->
+    MinimapPluginGeneratorView ?= require './minimap-plugin-generator-view'
     view = new MinimapPluginGeneratorView()
 
   # Public: Calls the `callback` when the minimap package have been activated.
@@ -225,30 +230,6 @@ class Minimap
   # Returns a `Disposable`.
   onDidDeactivatePlugin: (callback) ->
     @emitter.on 'did-deactivate-plugin', callback
-
-  # Internal: Used only for old events deprecation.
-  on: (eventName) ->
-    switch eventName
-      when 'activated'
-        deprecate("Use Minimap::onDidActivate instead.")
-      when 'deactivated'
-        deprecate("Use Minimap::onDidDeactivate instead.")
-      when 'minimap-view:created'
-        deprecate("Use Minimap::onDidCreateMinimap instead.")
-      when 'minimap-view:destroyed'
-        deprecate("Use Minimap::onDidDestroyMinimap instead.")
-      when 'minimap-view:will-be-destroyed'
-        deprecate("Use Minimap::onWillDestroyMinimap instead.")
-      when 'plugin:added'
-        deprecate("Use Minimap::onDidAddPlugin instead.")
-      when 'plugin:removed'
-        deprecate("Use Minimap::onDidRemovePlugin instead.")
-      when 'plugin:activated'
-        deprecate("Use Minimap::onDidActivatePlugin instead.")
-      when 'plugin:deactivated'
-        deprecate("Use Minimap::onDidDeactivatePlugin instead.")
-
-    EmitterMixin::on.apply(this, arguments)
 
 # The minimap module is an instance of the {Minimap} class.
 module.exports = new Minimap()

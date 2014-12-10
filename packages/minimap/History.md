@@ -1,5 +1,108 @@
+<a name="v3.4.7"></a>
+# v3.4.7 (2014-12-10)
+
+## :bug: Bug Fixes
+
+- Fix broken scroll when clicking the minimap ([e9c501c9](https://github.com/fundon/atom-minimap/commit/e9c501c908b160cc4a86df9eebe911866fae6c0a), [#171](https://github.com/fundon/atom-minimap/issues/171))
+
+<a name="v3.4.6"></a>
+# v3.4.6 (2014-12-10)
+
+## :bug: Bug Fixes
+
+- :guardsman: Try to use the already retrieve pane when possible ([33dd8cf6](https://github.com/fundon/atom-minimap/commit/33dd8cf6bc3f9bf51d3a4cdc4b1c2dcd842a9001))
+- Fix editor styles with minimap in zen mode ([6496aa92](https://github.com/fundon/atom-minimap/commit/6496aa92e05f96a5d45d0ec7d77888fd4d8cebed))
+
+<a name="v3.4.5"></a>
+# v3.4.5 (2014-12-05)
+
+## :bug: Bug Fixes
+
+- Fix broken view destruction with shadow DOM disabled ([7d062ec6](https://github.com/fundon/atom-minimap/commit/7d062ec601b0c63cedd2ef55f6990c96ab57f483), [#166](https://github.com/fundon/atom-minimap/issues/166))
+
+<a name="v3.4.4"></a>
+# v3.4.4 (2014-12-05)
+
+## :bug: Bug Fixes
+
+- Fix broken minimap when shadowRoot isn't enabled ([f5f6e779](https://github.com/fundon/atom-minimap/commit/f5f6e7792bd8ef471d2f122dabfc34e3f2adcb88))
+
+<a name="v3.4.3"></a>
+# v3.4.3 (2014-12-05)
+
+## :bug: Bug Fixes
+
+- Fix broken actions and navigation in quick settings ([b2114b34](https://github.com/fundon/atom-minimap/commit/b2114b348d0a66a077a27dd6ec7be121944efee6))
+
+<a name="v3.4.2"></a>
+# v3.4.2 (2014-12-05)
+
+## :bug: Bug Fixes
+
+- Should fix non-activation in post update hook ([659ffc63](https://github.com/fundon/atom-minimap/commit/659ffc63d7530ab340ca18054e22e708f1a9b1bf))
+
+<a name="v3.4.1"></a>
+# v3.4.1 (2014-12-05)
+
+## :bug: Bug Fixes
+
+- Fix atom-space-pen-views version in package.son ([90aa4588](https://github.com/fundon/atom-minimap/commit/90aa4588e8137a6f74d2883d1d10b73786b12fb4))
+
+<a name="v3.4.0"></a>
+# v3.4.0 (2014-12-05)
+
+## :sparkles: Features
+
+- Add an observeMinimaps method replacing eachMinimapView ([98c81307](https://github.com/fundon/atom-minimap/commit/98c8130705c6ffbf1ce4f0cf43f8654d5f5d7615))
+- Add more defensive code if a marker can't be retrieved ([600e5bb1](https://github.com/fundon/atom-minimap/commit/600e5bb1ba3c855eac0312a9573d47b605b30ed5))
+- Add defensive code on decorations methods ([6104fe17](https://github.com/fundon/atom-minimap/commit/6104fe17625e30af5d4f9d211d393167830f18aa))
+
+## :bug: Bug Fixes
+
+- Prevent removal of inexistant decorations ([a8e21c27](https://github.com/fundon/atom-minimap/commit/a8e21c277e308f6b1de44bac0da39ee4f04f0618))
+- Fix broken quick settings button in minimap ([da1986a9](https://github.com/fundon/atom-minimap/commit/da1986a9510ca6410d60a7e8e5f8ff932ea2f47b))
+- Fix missing decorations caused by shadow root ([f8b4ae03](https://github.com/fundon/atom-minimap/commit/f8b4ae03af85b0d4c3a10fc80490d4e11f447038))
+- Fix bugs with minimap scrolling and height ([6327de96](https://github.com/fundon/atom-minimap/commit/6327de966f12a513641a59af3ac5f3321747c9c6))
+- Fix retrieval of the dom colors ([b8c11bb3](https://github.com/fundon/atom-minimap/commit/b8c11bb31733d2bfbab4ed024769db4d6e1869f6))
+- Fix last remaining deprecations ([0a6ea03e](https://github.com/fundon/atom-minimap/commit/0a6ea03ef278237216fe9ef66f68c0299d460e98))
+
+## :racehorse: Performances
+
+- Speed up rendering by sharing cache between instances ([6fd00fa6](https://github.com/fundon/atom-minimap/commit/6fd00fa6faa5dcf1d903ac663b8c7a00925391e8))
+
+3.3.16 / 2014-12-01
+===================
+
+* fix code-highlights status in quick-settings menu
+
+3.3.15 / 2014-11-30
+===================
+
+* fix error raised when trying to remove a decoration for a destroyed buffer
+
+3.3.14 / 2014-11-25
+===================
+
+* fix minimap disappearing on tabs drag and drop
+
+3.3.13 / 2014-11-20
+===================
+
+* fix minimap styles persisting after minimap deactivation
+* remove key bindings for toggling command
+
+3.3.12 / 2014-11-19
+===================
+
+* remove forgotten logging
+
+3.3.11 / 2014-11-19
+===================
+
+* fix access to minimap view in quick settings
+
 3.3.10 / 2014-11-18
-==================
+===================
 
 * fix minimap removed when the active item of a previous owner changed
 

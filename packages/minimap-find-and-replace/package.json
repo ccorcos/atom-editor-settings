@@ -1,7 +1,7 @@
 {
   "name": "minimap-find-and-replace",
   "main": "./lib/minimap-find-and-replace",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Minimap bindings for the find and replace package",
   "author": {
     "name": "Cédric Néhémie",
@@ -17,8 +17,10 @@
   },
   "dependencies": {
     "emissary": "1.x",
+    "event-kit": "^0",
     "mixto": "1.x",
-    "underscore-plus": "1.x"
+    "underscore-plus": "1.x",
+    "atom-utils": "0.0.1"
   },
   "readme": "# minimap-find-and-replace package\n\nDisplays the search matches in the minimap.\n\n![Minimap Screenshot](https://github.com/abe33/minimap-find-and-replace/blob/master/screenshot.png?raw=true)\n\nYou will need the [Minimap package](https://github.com/fundon/atom-minimap) installed to use this package.\n",
   "readmeFilename": "README.md",
@@ -26,15 +28,20 @@
     "url": "https://github.com/abe33/minimap-find-and-replace/issues"
   },
   "homepage": "https://github.com/abe33/minimap-find-and-replace",
-  "_id": "minimap-find-and-replace@3.0.3",
+  "_id": "minimap-find-and-replace@3.0.4",
   "dist": {
-    "shasum": "9c8356ece1187988fa26d4d5df600de4a235062c"
+    "shasum": "633155ebbe12f86488abbb31416633fa2d3bae9c"
   },
-  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141021-94003-4iqhe/package.tgz",
-  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141021-94003-4iqhe/package.tgz",
+  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141110-3120-jsx8zw/package.tgz",
+  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141110-3120-jsx8zw/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
+      {
+        "name": "atom-utils",
+        "version": "0.0.1",
+        "path": "node_modules/atom-utils/lib/atom-utils.js"
+      },
       {
         "name": "emissary",
         "version": "1.3.1",
@@ -54,6 +61,16 @@
         "name": "harmony-collections",
         "version": "0.3.7",
         "path": "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js"
+      },
+      {
+        "name": "event-kit",
+        "version": "0.8.1",
+        "path": "node_modules/event-kit/lib/event-kit.js"
+      },
+      {
+        "name": "grim",
+        "version": "0.12.0",
+        "path": "node_modules/event-kit/node_modules/grim/lib/grim.js"
       },
       {
         "name": "mixto",
@@ -78,6 +95,7 @@
         "lib/minimap-find-results-view.coffee"
       ],
       ".js": [
+        "node_modules/atom-utils/lib/atom-utils.js",
         "node_modules/emissary/lib/behavior.js",
         "node_modules/emissary/lib/emissary.js",
         "node_modules/emissary/lib/emitter.js",
@@ -90,16 +108,26 @@
         "node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js",
         "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js",
         "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/event-kit/lib/composite-disposable.js",
+        "node_modules/event-kit/lib/disposable.js",
+        "node_modules/event-kit/lib/emitter.js",
+        "node_modules/event-kit/lib/event-kit.js",
+        "node_modules/event-kit/node_modules/grim/lib/deprecation.js",
+        "node_modules/event-kit/node_modules/grim/lib/grim.js",
         "node_modules/mixto/lib/mixin.js",
         "node_modules/underscore-plus/lib/underscore-plus.js",
         "node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
         "node_modules/underscore-plus/node_modules/underscore/underscore.js"
       ],
       ".json": [
+        "node_modules/atom-utils/package.json",
         "node_modules/emissary/node_modules/harmony-collections/package.json",
         "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/package.json",
         "node_modules/emissary/node_modules/property-accessors/package.json",
         "node_modules/emissary/package.json",
+        "node_modules/event-kit/api.json",
+        "node_modules/event-kit/node_modules/grim/package.json",
+        "node_modules/event-kit/package.json",
         "node_modules/mixto/package.json",
         "node_modules/underscore-plus/node_modules/underscore/package.json",
         "node_modules/underscore-plus/package.json",
@@ -115,8 +143,10 @@
         ],
         "dependencies": {
           "emissary": "1.x",
+          "event-kit": "^0",
           "mixto": "1.x",
-          "underscore-plus": "1.x"
+          "underscore-plus": "1.x",
+          "atom-utils": "0.0.1"
         }
       },
       {
@@ -137,6 +167,25 @@
         ],
         "dependencies": {
           "mixto": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/event-kit",
+          "node_modules/event-kit/lib"
+        ],
+        "dependencies": {
+          "grim": "^0.12.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/event-kit/node_modules/grim/lib",
+          "node_modules/event-kit/node_modules/grim"
+        ],
+        "dependencies": {
+          "underscore-plus": "^1.0.0",
+          "emissary": "^1.2.0"
         }
       },
       {

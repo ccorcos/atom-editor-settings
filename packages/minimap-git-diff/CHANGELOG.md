@@ -1,3 +1,47 @@
+<a name="v3.0.11"></a>
+# v3.0.11 (2014-12-05)
+
+## :bug: Bug Fixes
+
+- Fix error still raised when adding marker to a destroyed buffer ([afc00dd7](https://github.com/abe33/minimap-git-diff/commit/afc00dd79a7aff44fcbdc4840b0eee79376bfdb7))
+
+<a name="v3.0.10"></a>
+# v3.0.10 (2014-12-05)
+
+- Remove warning and prevent marker creation if editor was destroyed
+
+<a name="v3.0.9"></a>
+# v3.0.9 (2014-12-05)
+
+## :bug: Bug Fixes
+
+- Fix use of deprecated minimap API ([8770ea30](https://github.com/abe33/minimap-git-diff/commit/8770ea3070532a00d3d82621961065e52f420118))
+- Fix broken plugin with latest minimap changes ([b1a2e958](https://github.com/abe33/minimap-git-diff/commit/b1a2e958d6d2731a51f0239ca12156521ebbd1d3))
+
+<a name="v3.0.8"></a>
+# v3.0.8 (2014-10-29)
+
+- Use `atom-utils` for packages requires.
+- Add defensive code in `markRange` for the case the text editor is destroyed.
+
+## :bug: Bug Fixes
+
+- Fix requiring packages by using a promise ([38096519](https://github.com/atom-minimap/minimap-git-diff/commit/3809651918431541db84a4dbc05502dbe5440f11))
+
+<a name="v3.0.6"></a>
+# v3.0.6 (2014-10-23)
+
+## :bug: Bug Fixes
+
+- Fix requiring packages by using a promise ([38096519](https://github.com/atom-minimap/minimap-git-diff/commit/3809651918431541db84a4dbc05502dbe5440f11))
+
+<a name="v3.0.5"></a>
+# v3.0.5 (2014-10-22)
+
+## :bug: Bug Fixes
+
+- Fix access to packages dependencies ([422ef35a](https://github.com/atom-minimap/minimap-git-diff/commit/422ef35ae21f1bb6d3eb8057757599af5e457292))
+
 <a name="v3.0.4"></a>
 # v3.0.4 (2014-09-24)
 

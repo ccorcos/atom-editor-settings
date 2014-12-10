@@ -21,6 +21,9 @@ class ScriptView extends View
       @div class: css, outlet: 'script', tabindex: -1, =>
         @div class: 'panel-body padded output', outlet: 'output'
 
+  configDefaults:
+    escapeConsoleOutput: true
+
   initialize: (serializeState, @runOptions) ->
     # Bind commands
     atom.workspaceView.command 'script:run', => @defaultRun()
@@ -193,8 +196,11 @@ class ScriptView extends View
     else
       @headerView.title.text "#{codeContext.lang} - #{codeContext.filename}"
 
-    commandContext.args = buildArgsArray codeContext
-
+    try
+      commandContext.args = buildArgsArray codeContext
+    catch errorSendByArgs
+      @handleError errorSendByArgs
+      return false
 
     # Return setup information
     return commandContext
@@ -208,6 +214,7 @@ class ScriptView extends View
 
   run: (command, extraArgs, codeContext) ->
     atom.emit 'achievement:unlock', msg: 'Homestar Runner'
+    startTime = new Date()
 
     # Default to where the user opened atom
     options =
@@ -220,6 +227,10 @@ class ScriptView extends View
     stdout = (output) => @display 'stdout', output
     stderr = (output) => @display 'stderr', output
     exit = (returnCode) =>
+      if (atom.config.get 'script.enableExecTime') is true
+        executionTime = (new Date().getTime() - startTime.getTime()) / 1000
+        @display 'stdout', '[Finished in '+executionTime.toString()+'s]'
+
       if returnCode is 0
         @headerView.setStatus 'stop'
       else
@@ -252,8 +263,9 @@ class ScriptView extends View
       @bufferedProcess.kill()
 
   display: (css, line) ->
-    line = _.escape(line)
-    line = @ansiFilter.toHtml(line)
+    if atom.config.get('script.escapeConsoleOutput')
+      line = _.escape(line)
+      line = @ansiFilter.toHtml(line)
 
     @output.append $$ ->
       @pre class: "line #{css}", =>

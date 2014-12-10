@@ -1,7 +1,7 @@
 {
   "name": "minimap-git-diff",
   "main": "./lib/minimap-git-diff",
-  "version": "3.0.4",
+  "version": "3.0.11",
   "description": "A minimap binding for the git diff package",
   "author": {
     "name": "Cédric Néhémie",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom-minimap/minimap-git-diff"
+    "url": "https://github.com/abe33/minimap-git-diff"
   },
   "license": "MIT",
   "engines": {
@@ -17,18 +17,181 @@
   },
   "dependencies": {
     "mixto": "1.x",
-    "event-kit": ">= 0.7.2"
+    "event-kit": ">= 0.7.2",
+    "atom-utils": "0.0.1"
   },
   "readme": "# minimap-git-diff package\n\nA minimap binding for the Atom git-diff package.\n\n![Minimap Git Diff Screenshot](https://github.com/abe33/minimap-git-diff/blob/master/screenshot.png?raw=true)\n\nYou will need the [Minimap package](https://github.com/fundon/atom-minimap) installed to use this package.\n",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/atom-minimap/minimap-git-diff/issues"
+    "url": "https://github.com/abe33/minimap-git-diff/issues"
   },
-  "homepage": "https://github.com/atom-minimap/minimap-git-diff",
-  "_id": "minimap-git-diff@3.0.4",
+  "homepage": "https://github.com/abe33/minimap-git-diff",
+  "_id": "minimap-git-diff@3.0.11",
   "dist": {
-    "shasum": "1db5bf5564a65381f9d81a6e23aba9c0f1ac4c68"
+    "shasum": "909734d48f48be04897955664c1c426f106f0022"
   },
-  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-814-ekx8sa/package.tgz",
-  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-814-ekx8sa/package.tgz"
+  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141110-3038-h8fsrf/package.tgz",
+  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141110-3038-h8fsrf/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "atom-utils",
+        "version": "0.0.1",
+        "path": "node_modules/atom-utils/lib/atom-utils.js"
+      },
+      {
+        "name": "event-kit",
+        "version": "0.8.1",
+        "path": "node_modules/event-kit/lib/event-kit.js"
+      },
+      {
+        "name": "grim",
+        "version": "0.12.0",
+        "path": "node_modules/event-kit/node_modules/grim/lib/grim.js"
+      },
+      {
+        "name": "emissary",
+        "version": "1.3.1",
+        "path": "node_modules/event-kit/node_modules/grim/node_modules/emissary/lib/emissary.js"
+      },
+      {
+        "name": "harmony-collections",
+        "version": "0.3.7",
+        "path": "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/harmony-collections/harmony-collections.js"
+      },
+      {
+        "name": "property-accessors",
+        "version": "1.1.0",
+        "path": "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js"
+      },
+      {
+        "name": "harmony-collections",
+        "version": "0.3.7",
+        "path": "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.6.1",
+        "path": "node_modules/event-kit/node_modules/grim/node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/event-kit/node_modules/grim/node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "mixto",
+        "version": "1.0.0",
+        "path": "node_modules/mixto/lib/mixin.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "lib/minimap-git-diff-binding.coffee",
+        "lib/minimap-git-diff.coffee"
+      ],
+      ".js": [
+        "node_modules/atom-utils/lib/atom-utils.js",
+        "node_modules/event-kit/lib/composite-disposable.js",
+        "node_modules/event-kit/lib/disposable.js",
+        "node_modules/event-kit/lib/emitter.js",
+        "node_modules/event-kit/lib/event-kit.js",
+        "node_modules/event-kit/node_modules/grim/lib/deprecation.js",
+        "node_modules/event-kit/node_modules/grim/lib/grim.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/lib/behavior.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/lib/emissary.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/lib/emitter.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/lib/helpers.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/lib/signal.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/lib/subscriber.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/lib/subscription.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/harmony-collections/harmony-collections.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/underscore-plus/lib/underscore-plus.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
+        "node_modules/event-kit/node_modules/grim/node_modules/underscore-plus/node_modules/underscore/underscore.js",
+        "node_modules/mixto/lib/mixin.js"
+      ],
+      ".json": [
+        "node_modules/atom-utils/package.json",
+        "node_modules/event-kit/api.json",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/harmony-collections/package.json",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/package.json",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/property-accessors/package.json",
+        "node_modules/event-kit/node_modules/grim/node_modules/emissary/package.json",
+        "node_modules/event-kit/node_modules/grim/node_modules/underscore-plus/node_modules/underscore/package.json",
+        "node_modules/event-kit/node_modules/grim/node_modules/underscore-plus/package.json",
+        "node_modules/event-kit/node_modules/grim/package.json",
+        "node_modules/event-kit/package.json",
+        "node_modules/mixto/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "mixto": "1.x",
+          "event-kit": ">= 0.7.2",
+          "atom-utils": "0.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/event-kit",
+          "node_modules/event-kit/lib"
+        ],
+        "dependencies": {
+          "grim": "^0.12.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/event-kit/node_modules/grim/lib",
+          "node_modules/event-kit/node_modules/grim"
+        ],
+        "dependencies": {
+          "underscore-plus": "^1.0.0",
+          "emissary": "^1.2.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/event-kit/node_modules/grim/node_modules/emissary/lib",
+          "node_modules/event-kit/node_modules/grim/node_modules/emissary"
+        ],
+        "dependencies": {
+          "underscore-plus": "1.x",
+          "mixto": "1.x",
+          "property-accessors": "^1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/property-accessors/lib",
+          "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/property-accessors"
+        ],
+        "dependencies": {
+          "mixto": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/event-kit/node_modules/grim/node_modules/underscore-plus/lib",
+          "node_modules/event-kit/node_modules/grim/node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      }
+    ]
+  }
 }

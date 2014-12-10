@@ -187,7 +187,10 @@ module.exports =
   PHP:
     "Selection Based":
       command: "php"
-      args: (context)  -> ['-r', context.getCode()]
+      args: (context) ->
+        code = context.getCode()
+        file = GrammarUtils.PHP.createTempFileWithCode(code)
+        [file]
     "File Based":
       command: "php"
       args: (context) -> [context.filepath]
@@ -203,7 +206,7 @@ module.exports =
   PowerShell:
     "File Based":
       command: "powershell"
-      args: (context) -> [context.filepath]
+      args: (context) -> [context.filepath.replace /\ /g, "` "]
 
   Python:
     "Selection Based":
@@ -245,14 +248,6 @@ module.exports =
       command: "rails"
       args: (context) -> ['runner', context.filepath]
 
-  'Shell Script (Bash)':
-    "Selection Based":
-      command: "bash"
-      args: (context)  -> ['-c', context.getCode()]
-    "File Based":
-      command: "bash"
-      args: (context) -> [context.filepath]
-
   Makefile:
     "Selection Based":
       command: "bash"
@@ -285,6 +280,22 @@ module.exports =
   SCSS:
     "File Based":
       command: "sass"
+      args: (context) -> [context.filepath]
+
+  "Shell Script":
+    "Selection Based":
+      command: "bash"
+      args: (context)  -> ['-c', context.getCode()]
+    "File Based":
+      command: "bash"
+      args: (context) -> [context.filepath]
+
+  "Shell Script (Fish)":
+    "Selection Based":
+      command: "fish"
+      args: (context)  -> ['-c', context.getCode()]
+    "File Based":
+      command: "fish"
       args: (context) -> [context.filepath]
 
   "Standard ML":

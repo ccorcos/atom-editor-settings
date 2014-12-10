@@ -1,5 +1,8 @@
 @import "ui-variables";
 
+atom-notifications:empty {
+  pointer-events: none
+}
 
 .pane.with-minimap {
   .editor, :host, atom-text-editor, atom-text-editor::shadow {
@@ -12,6 +15,17 @@
     }
   }
 }
+
+.zen .pane.with-minimap {
+  atom-text-editor, atom-text-editor::shadow {
+    padding-right: 0 !important;
+
+    .vertical-scrollbar {
+      right: 0 !important;
+    }
+  }
+}
+
 .minimap-quick-settings {
   position: absolute !important;
 

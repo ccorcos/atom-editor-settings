@@ -1,3 +1,36 @@
+# v0.8
+
+### New features
+* Easier to understand config screen ([#266][266])
+
+### New linters
+* flow, bootlint
+
+[266]: https://github.com/AtomLinter/Linter/pull/266
+
+### Bug fixes
+* Fix line undefined error ([#257][257])
+* Shadow DOM compatibility
+
+[257]: https://github.com/AtomLinter/Linter/issues/257
+
+
+# v0.7.4
+
+### Bug fixes
+* Escape linter messages ([#231][231])
+* Fix error when closing tab ([#253][253])
+* Get rid of some uses of deprecated Atom APIs
+
+
+### New features
+* Provide file as errorStream (See [#255][255])
+
+[231]: https://github.com/AtomLinter/Linter/pull/231
+[253]: https://github.com/AtomLinter/Linter/pull/253
+[255]: https://github.com/AtomLinter/Linter/issues/255
+
+
 # v0.7.3
 
 ### Bug fixes

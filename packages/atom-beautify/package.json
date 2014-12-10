@@ -1,7 +1,7 @@
 {
   "name": "atom-beautify",
   "main": "./lib/beautify",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "private": true,
   "description": "Beautify HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, TypeScript, and SQL in Atom",
   "repository": {
@@ -107,11 +107,12 @@
   "readme": "# [atom-beautify](https://github.com/donaldpipowitch/atom-beautify)\n\n[![Gitter chat](https://badges.gitter.im/Glavin001/atom-beautify.png)](https://gitter.im/Glavin001/atom-beautify)\n[![Issue Stats](http://issuestats.com/github/glavin001/atom-beautify/badge/pr?style=flat)](http://issuestats.com/github/glavin001/atom-beautify)\n[![Issue Stats](http://issuestats.com/github/glavin001/atom-beautify/badge/issue?style=flat)](http://issuestats.com/github/glavin001/atom-beautify)\n\n> [Beautify](https://github.com/einars/js-beautify)\nHTML (including [Handlebars](http://handlebarsjs.com/)),\nCSS (including [Sass](http://sass-lang.com/) and [LESS](http://lesscss.org/)),\nJavaScript, and much more in Atom.\n\nAtom Package: https://atom.io/packages/atom-beautify\n\n```bash\napm install atom-beautify\n```\n\nOr Settings/Preferences ➔ Packages ➔ Search for `atom-beautify`\n\n\n## Language Support\n\n- [x] JavaScript and JSON\n- [x] HTML, including\n  - [x] [Handlebars](http://handlebarsjs.com/)\n  - [x] [Mustache](http://mustache.github.io)\n  - [x] [Embedded Ruby (ERB)](https://github.com/Glavin001/atom-beautify/issues/80)\n    - Requires [htmlbeautifier](https://github.com/threedaymonk/htmlbeautifier)\n  - [x] XML\n- [x] CSS, including\n  - [Sass](http://sass-lang.com/)\n  - [LESS](http://lesscss.org/)\n- [x] [SQL](https://github.com/Glavin001/atom-beautify/pull/67)\n  - Requires [python-sqlparse](https://github.com/andialbrecht/sqlparse)\n- [x] [Markdown](https://github.com/Glavin001/atom-beautify/issues/93#issuecomment-55642483)\n  - Requires [Pandoc](http://johnmacfarlane.net/pandoc/) to be already installed\n- [X] [Perl](https://github.com/Glavin001/atom-beautify/issues/33)\n- [x] [PHP](https://github.com/donaldpipowitch/atom-beautify/issues/26)  \n  - Requires [PHP_Beautifier](http://pear.php.net/package/PHP_Beautifier) to be already installed.\n- [x] [Python](https://github.com/donaldpipowitch/atom-beautify/issues/24)\n  - Requires [autopep8](https://github.com/hhatto/autopep8) to be already installed.\n  - Beautifies to [PEP 8](http://legacy.python.org/dev/peps/pep-0008/).\n- [x] [Ruby](https://github.com/donaldpipowitch/atom-beautify/issues/25)\n  - Requires [RBeautify](https://github.com/erniebrodeur/ruby-beautify)\n- [x] [CoffeeScript](https://github.com/donaldpipowitch/atom-beautify/issues/31)\n- [x] [Java](https://github.com/Glavin001/atom-beautify/issues/45)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [C](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [C++](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [C#](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [Objective-C](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [D](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [Pawn](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [Vala](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [TypeScript](https://github.com/Glavin001/atom-beautify/issues/49)\n\n## Usage\n\nOpen the [Command Palette](https://github.com/atom/command-palette), and type `Beautify`.\n\nIt will only beautify selected text, if a selection is found - if not, the whole file will be beautified.\n\n### Shortcut\n\nYou can also type `ctrl-alt-b` as a shortcut or click `Packages > Beautify` in the menu.\n\n#### Custom Keyboard Shortcuts\n\nSee [Keymaps In-Depth](https://atom.io/docs/latest/advanced/keymaps) for more details.\n\nFor example:\n\n```coffeescript\n'.editor': # Available from Editor only\n  'ctrl-alt-b': 'beautify'\n```\n\n### Package Options\n\n- `beautifyOnSave`  (Default *false*)\nYou can also choose to beautify on every file save.\n\n- `beautifyEntireFileOnSave` (Default *true*)\nBeautification will normally only beautify your selected text.\nHowever, when beautification occurs on save then it will\nbe forced to beautify the entire file's contents,\nnot just selected text.\n\n- `disabledLanguages` (Default *empty array*)\nAn array of Grammar names to disable beautification for.\nNote: If using the Atom's Package Settings then an array is\nrepresented as comma-separated string.\n\n- `muteUnsupportedLanguageErrors` (Default *false*)\nMute only *unsupported language* errors.\n\n- `muteAllErrors` (Default *false*)\nDo not show the *Atom Beautify Error Messages* panel\nfor any of the errors occurring while beautifying.\n\n- `analytics`  (Default *true*)\nThere is [Segment.io](https://segment.io/),\nwhich forwards the data to [Google Analytics](http://www.google.com/analytics/),\nto track what languages\nare being used the most and other stats.\nEverything is anonymized and no personal information,\nsuch as source code, is sent.\nSee https://github.com/Glavin001/atom-beautify/issues/47\nfor more details.\n\n## Configuration\n\nEdit your `.jsbeautifyrc` file in any of the following locations:\n\n- Atom Package Settings  \n  `Atom` ➔ `Preferences` ➔ Search for `atom-beautify`\n- Same directory as current file\n- Project root  \n`atom-beautify` will recursively look up from the current file's directory to find `.jsbeautifyrc`.\n- Your User's Home directory\n\n**Note**: *Comments are supported in `.jsbeautifyrc` thanks to [strip-json-comments](https://github.com/sindresorhus/strip-json-comments).*\n\nSee examples of both way inside [`examples/`](https://github.com/donaldpipowitch/atom-beautify/tree/master/examples)\n\nOption table is available at the [js-beautify repo](https://github.com/beautify-web/js-beautify#options).\n\n### Simple\n\nSee [examples/simple-jsbeautifyrc/.jsbeautifyrc](https://github.com/donaldpipowitch/atom-beautify/blob/master/examples/simple-jsbeautifyrc/.jsbeautifyrc).\n\n```json\n{\n  \"indent_size\": 2,\n  \"indent_char\": \" \",\n  \"other\": \" \",\n  \"indent_level\": 0,\n  \"indent_with_tabs\": false,\n  \"preserve_newlines\": true,\n  \"max_preserve_newlines\": 2,\n  \"jslint_happy\": true,\n  \"indent_handlebars\": true\n}\n```\n\n### Nested\n\nSee [examples/nested-jsbeautifyrc/.jsbeautifyrc](https://github.com/donaldpipowitch/atom-beautify/blob/master/examples/nested-jsbeautifyrc/.jsbeautifyrc).\n\n```json\n{\n  \"html\": {\n    \"brace_style\": \"collapse\",\n    \"indent_char\": \" \",\n    \"indent_scripts\": \"normal\",\n    \"indent_size\": 6,\n    \"max_preserve_newlines\": 1,\n    \"preserve_newlines\": true,\n    \"unformatted\": [\"a\", \"sub\", \"sup\", \"b\", \"i\", \"u\"],\n    \"wrap_line_length\": 0\n  },\n  \"css\": {\n    \"indent_char\": \" \",\n    \"indent_size\": 4\n  },\n  \"js\": {\n    \"indent_size\": 2,\n    \"indent_char\": \" \",\n    \"indent_level\": 0,\n    \"indent_with_tabs\": false,\n    \"preserve_newlines\": true,\n    \"max_preserve_newlines\": 2,\n    \"jslint_happy\": true\n  },\n  \"sql\": {\n    \"indent_size\": 4,\n    \"indent_char\": \" \",\n    \"indent_level\": 0,\n    \"indent_with_tabs\": false\n  }\n}\n```\n\n## Advanced Language Setup\n\n### PHP\n\nTo use with PHP we require [PHP_Beautifier](http://pear.php.net/package/PHP_Beautifier)\nand that you set the `Php beautifier path` in the package settings.\n\n#### Retrieve the path on Mac & Linux\n\nRun `which php_beautifier` in your Terminal.\n\n### Python\n\nTo use with Python we require [autopep8](https://github.com/hhatto/autopep8)\nand that you set the `Python autopep8 path` in the package settings.\n\n#### Retrieve the path on Mac & Linux\n\nRun `which autopep8` in your Terminal.\n\n### Markdown\n\nTo use with Markdown we require [pandoc](http://johnmacfarlane.net/pandoc/)\nand you set the `Markdown Pandoc path` in the package settings.\n\n\n## Contributing\n\n[See all contributors on GitHub](https://github.com/donaldpipowitch/atom-beautify/graphs/contributors).\n\nPlease update the [CHANGELOG.md](https://github.com/donaldpipowitch/atom-beautify/blob/master/CHANGELOG.md),\nadd yourself as a contributor to the [package.json](https://github.com/donaldpipowitch/atom-beautify/blob/master/package.json),\nand submit a [Pull Request on GitHub](https://help.github.com/articles/using-pull-requests).\n\n## License\n\n[MIT](https://github.com/donaldpipowitch/atom-beautify/blob/master/LICENSE.md) © [Donald Pipowitch](https://github.com/donaldpipowitch)\n",
   "readmeFilename": "README.md",
   "homepage": "https://github.com/Glavin001/atom-beautify",
-  "_id": "atom-beautify@0.17.0",
+  "_id": "atom-beautify@0.17.1",
   "dist": {
-    "shasum": "7d13143015c892e849779c5c019f37ba7473e125"
+    "shasum": "5544e2e6d3aa761f638c1beb4263fd962463ef03"
   },
-  "_from": "/Users/chet/.atom/.node-gyp/.atom/.apm/atom-beautify/0.17.0/package.tgz",
+  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141110-3059-1bzywek/package.tgz",
+  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141110-3059-1bzywek/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -122,7 +123,7 @@
       },
       {
         "name": "clone",
-        "version": "0.1.18",
+        "version": "0.1.19",
         "path": "node_modules/analytics-node/node_modules/clone/clone.js"
       },
       {
@@ -367,7 +368,7 @@
       },
       {
         "name": "pac-resolver",
-        "version": "1.2.2",
+        "version": "1.2.4",
         "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/index.js"
       },
       {
@@ -377,7 +378,7 @@
       },
       {
         "name": "degenerator",
-        "version": "0.0.3",
+        "version": "1.0.0",
         "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/index.js"
       },
       {
@@ -687,7 +688,7 @@
       },
       {
         "name": "ini",
-        "version": "1.3.0",
+        "version": "1.3.2",
         "path": "node_modules/js-beautify/node_modules/config-chain/node_modules/ini/ini.js"
       },
       {
@@ -722,17 +723,17 @@
       },
       {
         "name": "argparse",
-        "version": "0.1.15",
+        "version": "0.1.16",
         "path": "node_modules/js-yaml/node_modules/argparse/index.js"
       },
       {
         "name": "underscore",
-        "version": "1.4.4",
+        "version": "1.7.0",
         "path": "node_modules/js-yaml/node_modules/argparse/node_modules/underscore/underscore.js"
       },
       {
         "name": "underscore.string",
-        "version": "2.3.3",
+        "version": "2.4.0",
         "path": "node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/lib/underscore.string.js"
       },
       {
@@ -743,7 +744,7 @@
       {
         "name": "lodash",
         "version": "2.4.1",
-        "path": "node_modules/lodash/lodash.js"
+        "path": "node_modules/lodash/dist/lodash.js"
       },
       {
         "name": "loophole",
@@ -752,12 +753,12 @@
       },
       {
         "name": "node-uuid",
-        "version": "1.4.1",
+        "version": "1.4.2",
         "path": "node_modules/node-uuid/uuid.js"
       },
       {
         "name": "prettydiff",
-        "version": "1.5.10",
+        "version": "1.6.6",
         "path": "node_modules/prettydiff/prettydiff.js"
       },
       {
@@ -956,6 +957,7 @@
         "node_modules/js-yaml/bower.json",
         "node_modules/js-yaml/examples/dumper.json",
         "node_modules/js-yaml/node_modules/argparse/node_modules/underscore/package.json",
+        "node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/bower.json",
         "node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/component.json",
         "node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/package.json",
         "node_modules/js-yaml/node_modules/argparse/package.json",
@@ -1425,14 +1427,20 @@
         "node_modules/js-yaml/node_modules/argparse/lib/help/added_formatters.js",
         "node_modules/js-yaml/node_modules/argparse/lib/help/formatter.js",
         "node_modules/js-yaml/node_modules/argparse/lib/namespace.js",
-        "node_modules/js-yaml/node_modules/argparse/node_modules/underscore/index.js",
         "node_modules/js-yaml/node_modules/argparse/node_modules/underscore/underscore-min.js",
         "node_modules/js-yaml/node_modules/argparse/node_modules/underscore/underscore.js",
-        "node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/dist/underscore.string.min.js",
+        "node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/foo.js",
+        "node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/gulpfile.js",
         "node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/lib/underscore.string.js",
         "node_modules/js-yaml/node_modules/esprima/bin/esparse.js",
         "node_modules/js-yaml/node_modules/esprima/bin/esvalidate.js",
         "node_modules/js-yaml/node_modules/esprima/esprima.js",
+        "node_modules/lodash/dist/lodash.compat.js",
+        "node_modules/lodash/dist/lodash.compat.min.js",
+        "node_modules/lodash/dist/lodash.js",
+        "node_modules/lodash/dist/lodash.min.js",
+        "node_modules/lodash/dist/lodash.underscore.js",
+        "node_modules/lodash/dist/lodash.underscore.min.js",
         "node_modules/lodash/lodash.js",
         "node_modules/loophole/lib/loophole.js",
         "node_modules/node-uuid/benchmark/benchmark.js",
@@ -1693,7 +1701,7 @@
         "dependencies": {
           "co": "~3.0.6",
           "netmask": "~1.0.4",
-          "degenerator": "~0.0.3",
+          "degenerator": "~1.0.0",
           "regenerator": "~0.4.7",
           "thunkify": "~2.1.1"
         }
@@ -2000,8 +2008,8 @@
           "node_modules/js-yaml/node_modules/argparse/lib/help"
         ],
         "dependencies": {
-          "underscore": "~1.4.3",
-          "underscore.string": "~2.3.1"
+          "underscore": "~1.7.0",
+          "underscore.string": "~2.4.0"
         }
       },
       {

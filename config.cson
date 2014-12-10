@@ -20,8 +20,6 @@
     ]
     'disabledPackages': [
       'markdown-format'
-      'minimap-git-diff'
-      'script'
       'js2coffee'
       'autocomplete-snippets'
       'autocomplete-plus'
@@ -31,6 +29,6 @@
     'scheme': 'Railscasts'
   'minimap':
     'plugins':
-      'git-diff': true
-      'color-highlight': true
       'find-and-replace': true
+      'git-diff': true
+  'linter': {}

@@ -1,7 +1,7 @@
 {
   "name": "unity-dark-ui",
   "theme": "ui",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "./lib/unity-ui",
   "private": false,
   "description": "An Atom theme for a more native experience on OS X.",
@@ -19,15 +19,23 @@
     "url": "https://github.com/rschiang/unity-dark-ui/issues"
   },
   "homepage": "https://github.com/rschiang/unity-dark-ui",
-  "_id": "unity-dark-ui@1.0.0",
+  "_id": "unity-dark-ui@1.1.0",
   "dist": {
-    "shasum": "d3e99012ba9a0aee544c0349c105725a4c581127"
+    "shasum": "98f5bde25b0b85622dc940b567eccb876d538736"
   },
-  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-5830-1urpmdh/package.tgz",
-  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-114917-5830-1urpmdh/package.tgz",
+  "_resolved": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141110-3141-1j26c3c/package.tgz",
+  "_from": "/private/var/folders/x5/mdr8syvj7lsb_sg_pr0j7y_h0000gn/T/d-1141110-3141-1j26c3c/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/unity-ui.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
     "folders": []
   }
 }

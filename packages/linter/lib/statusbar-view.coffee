@@ -1,4 +1,5 @@
 {View, Point} = require 'atom'
+_ = require 'lodash'
 
 # Status Bar View
 class StatusBarView extends View
@@ -53,6 +54,7 @@ class StatusBarView extends View
       if showInRange or showOnLine or @showAllErrors
         pos = "line: #{item.line}"
         if item.col? then pos = "#{pos} / col: #{item.col}"
+        message = _.escape(item.message)
         violation =
           """
             <dt>
@@ -61,7 +63,7 @@ class StatusBarView extends View
             <dd>
               <span class='copy icon-clippy'></span>
               <span class='goToError' data-line='#{item.line - 1}' data-col='#{item.col - 1 or 0}'>
-                <span class='error-message linter-line-#{item.line - 1}'>#{item.message}</span>
+                <span class='error-message linter-line-#{item.line - 1}'>#{message}</span>
                 <span class='pos'>#{pos}</span>
               </span>
             </dd>
@@ -80,11 +82,12 @@ class StatusBarView extends View
     # preppend this view the bottom
     atom.workspaceView.prependToBottom this
 
+    statusBarConfig = atom.config.get 'linter.statusBar'
     # Config value if you want to limit the status bar report
     # if your cursor is in the range or error, or on the line
-    limitOnErrorRange = atom.config.get 'linter.showStatusBarWhenCursorIsInErrorRange'
+    limitOnErrorRange = statusBarConfig == 'Show error if the cursor is in range'
     # Display all errors in the file if it set to true
-    @showAllErrors = atom.config.get 'linter.showAllErrorsInStatusBar'
+    @showAllErrors = statusBarConfig == 'Show all errors'
 
     # Hide the last version of this view
     @hide()

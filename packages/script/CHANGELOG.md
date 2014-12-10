@@ -1,3 +1,16 @@
+## 2.15.1
+* Remove a unused import from script.less
+
+## 2.15.0
+* Add temporary file support
+* Enhance PHP selection based runner
+
+## 2.14.0
+* Add the ability to unescape HTML output (configuration option)
+* Add total execution time to output (configuration option)
+* Update Shell Script grammar name
+* Update PowerShell runner to support files with whitespace in the name
+
 ## 2.13.0
 * Add Sass support
 * Add SCSS support

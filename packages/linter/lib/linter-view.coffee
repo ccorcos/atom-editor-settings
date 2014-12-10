@@ -16,6 +16,7 @@ class LinterView
   tempFile: ''
   messages: []
   subscriptions: []
+  isDestroyed: false
 
   # Pubic: Instantiate the views
   #
@@ -32,17 +33,6 @@ class LinterView
 
     @initLinters(@linters)
 
-    @subscriptions.push atom.workspaceView.on 'pane:item-removed', =>
-      @statusBarView.hide()
-      @inlineView.hide()
-
-    @subscriptions.push atom.workspaceView.on 'pane:active-item-changed', =>
-      if @editor.id is atom.workspace.getActiveEditor()?.id
-        @updateViews()
-      else
-        @statusBarView.hide()
-        @inlineView.hide()
-
     @handleBufferEvents()
     @handleConfigChanges()
 
@@ -57,7 +47,8 @@ class LinterView
     grammarName = @editor.getGrammar().scopeName
     for linter in linters
       if (_.isArray(linter.syntax) and grammarName in linter.syntax or
-          _.isString(linter.syntax) and grammarName is linter.syntax)
+          _.isString(linter.syntax) and grammarName is linter.syntax or
+          linter.syntax instanceof RegExp and linter.syntax.test(grammarName))
         @linters.push(new linter(@editor))
 
   # Internal: register config modifications handlers
@@ -84,9 +75,9 @@ class LinterView
         @showGutters = showGutters
         @display()
 
-    @subscriptions.push atom.config.observe 'linter.showErrorInStatusBar',
-      (showMessagesAroundCursor) =>
-        @showMessagesAroundCursor = showMessagesAroundCursor
+    @subscriptions.push atom.config.observe 'linter.statusBar',
+      (statusBar) =>
+        @showMessagesAroundCursor = statusBar != 'None'
         @updateViews()
 
     @subscriptions.push atom.config.observe 'linter.showErrorInline',
@@ -102,20 +93,33 @@ class LinterView
   # Internal: register handlers for editor buffer events
   handleBufferEvents: =>
     buffer = @editor.getBuffer()
+    @bufferSubs = []
 
-    @subscriptions.push buffer.on 'reloaded saved', (buffer) =>
-      @throttledLint() if @lintOnSave
+    maybeLintOnSave = => @throttledLint() if @lintOnSave
 
-    @subscriptions.push buffer.on 'destroyed', ->
-      buffer.off 'reloaded saved'
-      buffer.off 'destroyed'
+    @bufferSubs.push(buffer.onDidReload maybeLintOnSave)
+    @bufferSubs.push buffer.onDidDestroy =>
+      @isDestroyed = true
+      s.dispose() for s in @bufferSubs
 
-    @subscriptions.push @editor.on 'contents-modified', =>
+    # now handle other events
+    @subscriptions.push(@editor.onDidSave maybeLintOnSave)
+
+    @subscriptions.push @editor.onDidStopChanging =>
       @throttledLint() if @lintOnModified
 
-    @subscriptions.push atom.workspaceView.on 'pane:active-item-changed', =>
+    pane = @editorView.getPaneView().getModel()
+    @subscriptions.push pane.onDidRemoveItem =>
+      @statusBarView.hide()
+      @inlineView.hide()
+
+    @subscriptions.push pane.onDidChangeActive =>
       if @editor.id is atom.workspace.getActiveEditor()?.id
         @throttledLint() if @lintOnEditorFocus
+        @updateViews()
+      else
+        @statusBarView.hide()
+        @inlineView.hide()
 
     atom.workspaceView.command "linter:lint", => @lint()
 
@@ -168,6 +172,8 @@ class LinterView
   display: ->
     @destroyMarkers()
 
+    return if @isDestroyed
+
     if @showGutters or @showHighlighting
       @markers ?= []
       for message in @messages
@@ -203,6 +209,6 @@ class LinterView
 
   # Public: remove this view and unregister all it's subscriptions
   remove: ->
-    subscription.off() for subscription in @subscriptions
+    s.dispose() for s in @subscriptions
 
 module.exports = LinterView

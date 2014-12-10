@@ -1,5 +1,7 @@
 {CompositeDisposable, Disposable} = require 'event-kit'
-MinimapGitDiffBinding = require './minimap-git-diff-binding'
+{requirePackages} = require 'atom-utils'
+
+MinimapGitDiffBinding = null
 
 class MinimapGitDiff
 
@@ -10,31 +12,27 @@ class MinimapGitDiff
 
   isActive: -> @pluginActive
   activate: (state) ->
-    @gitDiff = atom.packages.getLoadedPackage('git-diff')
-    @minimap = atom.packages.getLoadedPackage('minimap')
-
-    return @deactivate() unless @gitDiff? and @minimap?
-
-    @minimapModule = require @minimap.path
-
-    return @deactivate() unless @minimapModule.versionMatch('3.x')
-    @minimapModule.registerPlugin 'git-diff', this
+    requirePackages('minimap', 'git-diff').then ([@minimap, @gitDiff]) =>
+      return @deactivate() unless @minimap.versionMatch('3.x')
+      @minimap.registerPlugin 'git-diff', this
 
   deactivate: ->
     binding.destroy() for id,binding of @bindings
     @bindings = {}
     @gitDiff = null
     @minimap = null
-    @minimapModule = null
 
   activatePlugin: ->
     return if @pluginActive
 
-    @activateBinding()
-    @pluginActive = true
+    try
+      @activateBinding()
+      @pluginActive = true
 
-    @subscriptions.add @minimapModule.onDidActivate @activateBinding
-    @subscriptions.add @minimapModule.onDidDeactivate @destroyBindings
+      @subscriptions.add @minimap.onDidActivate @activateBinding
+      @subscriptions.add @minimap.onDidDeactivate @destroyBindings
+    catch e
+      console.log e
 
   deactivatePlugin: ->
     return unless @pluginActive
@@ -46,14 +44,16 @@ class MinimapGitDiff
   activateBinding: =>
     @createBindings() if atom.project.getRepo()?
 
-    @subscriptions.add @asDisposable atom.project.on 'path-changed', =>
-      if atom.project.getRepo()?
+    @subscriptions.add atom.project.onDidChangePaths =>
+      if atom.project.getRepositories().length
         @createBindings()
       else
         @destroyBindings()
 
   createBindings: =>
-    @minimapModule.eachMinimapView ({view}) =>
+    MinimapGitDiffBinding ||= require './minimap-git-diff-binding'
+
+    @subscriptions.add @minimap.observeMinimaps ({view}) =>
       editorView = view.editorView
       editor = view.editor
 
